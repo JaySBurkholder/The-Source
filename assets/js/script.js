@@ -15,6 +15,8 @@ var searchRecipeType = function () {
                 console.log("chicken recipe", data1);
             });
         });
+
+    localStorage.setItem('recipeType', response);
 }
 
 // variables for userSearch
@@ -36,6 +38,8 @@ var searchRecipeData = function () {
                 console.log("specific recipe", data2);
             });
         });
+
+    localStorage.setItem('recipeData', response);
 }
 
 searchRecipeType();
