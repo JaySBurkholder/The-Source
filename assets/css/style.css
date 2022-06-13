@@ -9,6 +9,9 @@ body {
 }
 
 header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #8d9ca4;
@@ -16,7 +19,7 @@ header {
 }
 
 header h1 {
-    display: inline-block;
+    justify-content: flex-start;
     font-size: 48px;
 }
 
@@ -25,22 +28,40 @@ header h1 .seo {
 }
 
 header nav {
+    justify-content: flex-end;
+    align-items: center;
     padding-top: 15px;
     margin-right: 20px;
-    float: right;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
 
 header nav ul {
     list-style-type: none;
+    display: inline-flex;
 }
 
 header nav ul li {
-    display: inline-block;
     margin-left: 25px;
 }
 
+<<<<<<< HEAD
 .row {
     float: right;
+=======
+.recipe-search {
+    height: 200px;
+    background-color: greenyellow;
+
+}
+
+h2 {
+    margin-left: 25px;
+    font-family: sans-serif;
+}
+
+.search-container {
+    margin-left: 25px;
+
+>>>>>>> 1a5d1ab9467dce6a73e4b9548c4972a86aa48418
 }
