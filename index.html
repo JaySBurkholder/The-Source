@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -29,20 +30,46 @@
     </header>
 
     <div class="recipe-search">
-        <h2>Recipe Search</h2>
+        <h3>Recipe Search</h3>
         <a class="active">
             <div class="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit">Submit</button>
+                    <button class="hollow button alert" type="submit">Submit</button>
                 </form>
             </div>
     </div>
+    <!-- Monday to Friday -->
+    <main class="fiveDays" id="fiveDays">
+        <section class="meals-list-wrapper">
+            <h2 class="list-title">Monday</h2>
+            <ul class="meals-list" id="monMeal"></ul>
+        </section>
+        
+        <section class="meals-list-wrapper">
+            <h2 class="list-title">Tuesday</h2>
+            <ul class="meals-list" id="tueMeal"></ul>
+        </section>
+        
+        <section class="meals-list-wrapper">
+            <h2 class="list-title">Wednesday</h2>
+            <ul class="meals-list" id="wedMeal"></ul>
+        </section>
+
+        <section class="meals-list-wrapper">
+            <h2 class="list-title">Thursday</h2>
+            <ul class="meals-list" id="thrMeal"></ul>
+        </section>
+
+        <section class="meals-list-wrapper">
+            <h2 class="list-title">Friday</h2>
+            <ul class="meals-list" id="friMeal"></ul>
+        </section>
+    </main>
 
     <div style="padding-left:16px">
     </div>
-
-    <img src="./assets/meal-preps.jpeg" alt="Meals" width="25%" height="25%">
+    <!-- <img src="./assets/meal-preps.jpeg" alt="Meals" width="25%" height="25%"> -->
 
     <footer>
 
