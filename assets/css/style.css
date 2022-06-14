@@ -47,11 +47,10 @@ header nav ul li {
 
 .row {
     float: right;
+}
 
-    .recipe-search {
-    height: 200px;
-    background-color: greenyellow;
-
+.recipe-search h3 {
+  padding: 10px;
 }
 
 h2 {
@@ -63,3 +62,71 @@ h2 {
     margin-left: 25px;
 
 }
+
+form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  form input {
+    outline: none;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 2.2rem;
+    border: 2px solid var(--grey);
+    border-radius: 12px;
+  }
+
+  input[type='text'] {
+    width: 300px;
+  }
+
+.fiveDays {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px auto;
+    width: 75%;
+  }
+  
+  .meals-list-wrapper {
+    flex: 1;
+    margin: 0 20px 20px;
+  }
+  
+  .list-title {
+    color: black;
+    font-size: 2.6rem;
+  }
+  
+  .meals-list {
+    list-style: none;
+    padding: 15px;
+    height: calc(100% - 50px);
+    background: rgb(196, 196, 196);
+    border-radius: 12px;
+    border: 2px solid black;
+  }
+
+  .card {
+    padding: 20px;
+    ;
+  }
+  
+  @media screen and (max-width: 980px) {
+    form {
+      flex: 1 100%;
+    }
+  
+    form button {
+      width: 10%;
+    }
+  
+    .task-list-wrapper {
+      flex-basis: 100%;
+    }
+  
+  }
