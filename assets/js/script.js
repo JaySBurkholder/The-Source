@@ -1,5 +1,5 @@
 // variables for querySearch
-var apiKey = "apiKey=d4255eb84b16491988ecc48ddf8e72df"
+var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
 var query = "chicken"
 var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
 var text2 = query + "&" + apiKey;
@@ -11,10 +11,32 @@ console.log(querySearch);
 var searchRecipeType = function () {
     var response = fetch(querySearch)
         .then(function (response) {
-            response.json().then(function (data1) {
-                console.log("chicken recipe", data1);
+            response.json().then(function (data) {
+                // console.log("chicken recipe", data);
+
+                var recipeData = data
+                // console.log(recipeData.results[0].id);
+                // console.log(recipeData.results[0].title);
+                // console.log(recipeData.results[0].image);
+
+
+                // for (var i = 0; i < recipeData.length; i++) {
+                //     console.log(recipeData.results[i]);
+                // }
+
+                for (const [keys, values] of Object.entries(recipeData.results[0])) {
+                    console.log(`${keys}: ${values}`);
+                }
+
+
+                // console.log("recipe data", recipeData);
+                // console.log("id", recipeData[0].id);
+                // console.log("title", recipeData[0].title);
+                // console.log("image", recipeData[0].image);
+                // console.log("nutrients", recipeData[0].nutrients);
             });
         });
+
 
     localStorage.setItem('recipeType', response);
 }
@@ -34,8 +56,8 @@ console.log(userSearch);
 var searchRecipeData = function () {
     var response = fetch(userSearch)
         .then(function (response) {
-            response.json().then(function (data2) {
-                console.log("specific recipe", data2);
+            response.json().then(function (data) {
+                // console.log("specific recipe", data);
             });
         });
 
