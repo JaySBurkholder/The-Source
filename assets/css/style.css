@@ -45,11 +45,10 @@ header nav ul li {
     margin-left: 25px;
 }
 
-<<<<<<< HEAD
 .row {
     float: right;
-=======
-.recipe-search {
+
+    .recipe-search {
     height: 200px;
     background-color: greenyellow;
 
@@ -63,5 +62,4 @@ h2 {
 .search-container {
     margin-left: 25px;
 
->>>>>>> 1a5d1ab9467dce6a73e4b9548c4972a86aa48418
 }
