@@ -1,3 +1,6 @@
+var submit = document.getElementById("submit");
+
+
 // variables for querySearch
 var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
 var query = "chicken"
