@@ -47,11 +47,7 @@ header nav ul li {
 
 .recipe-search {
     height: 200px;
-    background-image: url(./assets/meal2.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-position: 80%;
+    background-color: ;
 }
 
 h2 {
