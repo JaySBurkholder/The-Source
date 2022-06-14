@@ -50,6 +50,10 @@ header nav ul li {
     background-color: ;
 }
 
+.recipe-search h3 {
+  padding: 10px;
+}
+
 h2 {
     margin-left: 25px;
     font-family: sans-serif;
@@ -74,6 +78,10 @@ form {
     font-size: 2.2rem;
     border: 2px solid var(--grey);
     border-radius: 12px;
+  }
+
+  input[type='text'] {
+    width: 300px;
   }
 
 .fiveDays {
@@ -101,7 +109,25 @@ form {
     height: calc(100% - 50px);
     background: rgb(196, 196, 196);
     border-radius: 12px;
-    border: 2px solid var(--grey);
+    border: 2px solid black;
+  }
+
+  .card {
+    padding: 20px;
+    ;
   }
   
- 
+  @media screen and (max-width: 980px) {
+    form {
+      flex: 1 100%;
+    }
+  
+    form button {
+      width: 10%;
+    }
+  
+    .task-list-wrapper {
+      flex-basis: 100%;
+    }
+  
+  }
