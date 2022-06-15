@@ -26,6 +26,8 @@ fetch(requestLocationURL + "&" + locationKey)
         console.log(data);
     });
 
+
+    // Submit location info
     // const submit = document.getElementById('submit');
     
     // submit.addEventListener('keyup', (e) + {
@@ -35,18 +37,6 @@ fetch(requestLocationURL + "&" + locationKey)
 
 
 
-// // geolocation API info
-// var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
-// var locationKey = "Key=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
-
-// // calling location API
-// fetch(requestLocationURL + locationKey)
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     });
 
 // function = callLocationAPI(data){
 //     // call other api with data
