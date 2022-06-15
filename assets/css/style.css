@@ -47,7 +47,11 @@ header nav ul li {
 
 .recipe-search {
     height: 200px;
+<<<<<<< HEAD
     background-color: green;
+=======
+    background-color: green ;
+>>>>>>> JayBurkholder
 }
 
 .recipe-search h3 {
