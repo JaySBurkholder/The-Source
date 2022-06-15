@@ -19,6 +19,8 @@ fetch(requestWeatherURL + weatherKey)
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=aan%27t%20verlaat%2033f%20"
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
+// search text results from input form
+var searchText = ""
 
 // calling location API
 fetch(requestLocationURL + "&" + locationKey)
@@ -33,7 +35,6 @@ fetch(requestLocationURL + "&" + locationKey)
     })
     .then(function(response) {
         fetch
-    }
     });
 
 
@@ -42,7 +43,7 @@ fetch(requestLocationURL + "&" + locationKey)
     
     // submit.addEventListener('keyup', (e) + {
         
-
+    // = var searchText
     // });
 
 
