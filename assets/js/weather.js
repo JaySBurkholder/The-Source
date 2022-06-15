@@ -11,6 +11,9 @@ fetch(requestWeatherURL + weatherKey)
     })
     .then(function (data) {
         console.log(data);
+    })
+    .catch(error => {
+        console.log("an error occurred, please try again")
     });
 
 // geolocation API info
@@ -24,10 +27,13 @@ fetch(requestLocationURL + "&" + locationKey)
     })
     .then(function (data) {
         console.log(data);
+    })
+    .catch(error => {
+        console.log("an error occurred, please try again")
     });
 
 
-    // Submit location info
+    // Submit location info form
     // const submit = document.getElementById('submit');
     
     // submit.addEventListener('keyup', (e) + {
