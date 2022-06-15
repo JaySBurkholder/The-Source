@@ -1,17 +1,17 @@
-// // weather api info
-// var weatherKey = "key=a937108d6e62439e97d0d01f06886bd6"
-// var requestWeatherURL = "https://api.weatherbit.io/v2.0/current?";
-// // var userLocation = function()
+// weather api info
+var weatherKey = "key=a937108d6e62439e97d0d01f06886bd6"
+var requestWeatherURL = "https://api.weatherbit.io/v2.0/current?";
+// var userLocation = function()
 
 
-// // // fetch weather data
-// fetch(requestWeatherURL + weatherKey)
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     });
+// // fetch weather data
+fetch(requestWeatherURL + weatherKey)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    });
 
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=aan%27t%20verlaat%2033f%20"
