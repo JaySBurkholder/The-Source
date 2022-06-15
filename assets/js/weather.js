@@ -17,13 +17,14 @@ fetch(requestWeatherURL + weatherKey)
     });
 
 // geolocation API info
-var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=aan%27t%20verlaat%2033f%20"
+var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
-var searchText = ""
+var searchText = "Charlotte,NC"
+encodeURIComponent(searchText)
 
 // calling location API
-fetch(requestLocationURL + "&" + locationKey)
+fetch(requestLocationURL + searchText + "&" + locationKey)
     .then(function(response) {
         return response.json();
     })
@@ -32,9 +33,6 @@ fetch(requestLocationURL + "&" + locationKey)
     })
     .catch(error => {
         console.log("an error occurred, please try again")
-    })
-    .then(function(response) {
-        fetch
     });
 
 
@@ -42,7 +40,8 @@ fetch(requestLocationURL + "&" + locationKey)
     // const submit = document.getElementById('submit');
     
     // submit.addEventListener('keyup', (e) + {
-        
+
+    encodeURIComponent(searchText)
     // = var searchText
     // });
 
