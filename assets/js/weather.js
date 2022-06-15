@@ -50,8 +50,6 @@ fetch(requestLocationURL + locationKey)
 //         console.log(data);
 //     });
 
-=======
->>>>>>> d2c1fc70fdc84f0d67100988d814f9a7b445a0c6
 
 // function = callLocationAPI(data){
 //     // call other api with data
