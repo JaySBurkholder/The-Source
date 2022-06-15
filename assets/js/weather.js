@@ -26,12 +26,12 @@ fetch(requestLocationURL + "&" + locationKey)
         console.log(data);
     });
 
-    const submit = document.getElementById('submit');
+    // const submit = document.getElementById('submit');
     
-    submit.addEventListener('keyup', (e) + {
+    // submit.addEventListener('keyup', (e) + {
         
 
-    });
+    // });
 
 
 
