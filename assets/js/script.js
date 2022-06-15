@@ -52,8 +52,6 @@ var searchRecipeType = function () {
 var getDetails = function (details) {
     var id = details.mealId;
 
-    console.log(id);
-
 
 
     var text3 = `https://api.spoonacular.com/recipes/${id}`;
@@ -67,11 +65,11 @@ var getDetails = function (details) {
             details.json().then(function (data) {
                 console.log(data);
 
-            });
+            })
 
 
 
-        });
+        })
 
 }
 
@@ -108,4 +106,4 @@ var getDetails = function (details) {
 
 searchRecipeType();
 
-getDetails();
+// searchRecipeData();
