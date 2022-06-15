@@ -1,24 +1,17 @@
-var submit = document.getElementById("submit");
-
-
 // variables for querySearch
-var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
+var apiKey = "apiKey=d4255eb84b16491988ecc48ddf8e72df"
 var query = "chicken"
 var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
 var text2 = query + "&" + apiKey;
+// adding variables together to make api call
 var querySearch = text1.concat(text2);
 
-// console.log(querySearch);
-
-// search for a recipe-type
+// first api call that searches a type of recipe (pulls recipe id that we will use in next call)
 var searchRecipeType = function () {
     var response = fetch(querySearch)
         .then(function (response) {
-            response.json().then(function (data) {
+            response.json().then(function (recipeData) {
 
-                console.log("chicken recipe", data);
-
-                var recipeData = data
                 var id = recipeData.results[0].id;
                 var title = recipeData.results[0].title;
                 var image = recipeData.results[0].image;
@@ -29,7 +22,7 @@ var searchRecipeType = function () {
                     "mealImage": image
                 };
 
-                console.log(mealObj);
+                // console.log(mealObj);
 
 
                 getDetails(mealObj);
@@ -38,29 +31,70 @@ var searchRecipeType = function () {
 }
 
 var getDetails = function (details) {
-    var id = details.mealId;
+    const id = details.mealId;
 
-    console.log(id);
+    // console.log(id);
 
+    // decalring variables for second api call
+    const text3 = `https://api.spoonacular.com/recipes/${id}`;
+    const text4 = "/ingredientWidget.json?";
+    const newText1 = text3;
+    const newText2 = text4 + apiKey;
+    // adding variables together to make the api all
+    const userSearch = newText1.concat(newText2);
 
-
-    var text3 = `https://api.spoonacular.com/recipes/${id}`;
-    var text4 = "/ingredientWidget.json?";
-    var newText1 = text3;
-    var newText2 = text4 + apiKey;
-    var userSearch = newText1.concat(newText2);
-
+    // second api call to pull instructions for meal
     var details = fetch(userSearch)
         .then(function (details) {
-            details.json().then(function (data) {
-                console.log(data);
+            details.json().then(function (recipe) {
+                // console.log(data);
+                // console.log(recipe.ingredients);
+
+                // create array of our ingredient objects
+                var ingredientsList = recipe.ingredients.map(function (ingredient) {
+                    return { ingredient, amount: ingredient.amount.us }
+                })
+
+                // console.log(ingredientsList);
+
+
+                // send our list of ingredients to local stroage
+                localStorage.setItem("recipe", JSON.stringify(ingredientsList));
+
+                createRecipeEl(ingredientsList);
+
 
             });
         });
 }
 
+var createRecipeEl = function (ingredientsList) {
+    console.log(ingredientsList);
+
+}
+
+var loadRecipes = function () {
+    var savedReipes = localStorage.getItem("recipe");
+
+    if (!savedReipes) {
+        return false;
+    }
+
+    savedReipes = JSON.parse(savedReipes);
+
+    // console.log(savedReipes);
+
+}
+
+
+
+loadRecipes();
+
 searchRecipeType();
+
 getDetails();
+
+
 
 
 
@@ -92,4 +126,27 @@ getDetails();
 //         break;
 //     default:
 //         console.log("Something went wrong!");
+// }
+
+
+
+
+
+// old for loop
+// for (var i = 0; i < recipe.ingredients.length; i++) {
+//     var ingredients = recipe.ingredients[i];
+//     var amount = recipe.ingredients[i].amount.us;
+
+//     var mealInstructions = {
+//         "ingredients": ingredients,
+//         "amount": amount
+//     }
+
+
+//     ingredientsList.push(mealInstructions);
+
+
+//     console.log(ingredientsList);
+
+
 // }
