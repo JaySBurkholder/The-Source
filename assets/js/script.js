@@ -83,11 +83,11 @@ switch (taskDataObj.status) {
       tasksCompletedEl.append(listItemEl);
       break;
       case "Thursday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
       tasksToDoEl.append(listItemEl);
       break;
       case "Friday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
       tasksToDoEl.append(listItemEl);
       break;
     default:
