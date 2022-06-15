@@ -67,3 +67,29 @@ var searchRecipeData = function () {
 searchRecipeType();
 
 searchRecipeData();
+
+
+switch (taskDataObj.status) {
+    case "Monday":
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+      tasksToDoEl.append(listItemEl);
+      break;
+    case "Tuesday":
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
+      tasksInProgressEl.append(listItemEl);
+      break;
+    case "Wednseday":
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
+      tasksCompletedEl.append(listItemEl);
+      break;
+      case "Thursday":
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
+      tasksToDoEl.append(listItemEl);
+      break;
+      case "Friday":
+      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
+      tasksToDoEl.append(listItemEl);
+      break;
+    default:
+      console.log("Something went wrong!");
+  }
