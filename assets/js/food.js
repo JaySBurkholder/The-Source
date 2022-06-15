@@ -70,7 +70,23 @@ var getDetails = function (details) {
 
 var createRecipeEl = function (ingredientsList) {
     console.log(ingredientsList);
+    console.log(ingredientsList[0].ingredient);
+    var nameIngredient = ingredientsList[0].ingredient.name;
+    var amountIngredient = ingredientsList[0].ingredient.amount.us.value + ingredientsList[0].ingredient.amount.us.unit;
 
+
+    var mealList = document.getElementById("mealList");
+
+    var listItemEl = document.createElement("li");
+
+    var recipeInfoEl = document.createElement("div");
+
+    // ingredientsList = JSON.stringify(ingredientsList);
+    // var ingredientName = savedReipes.ingredient.name;
+    listItemEl.innerHTML = nameIngredient + amountIngredient;
+    recipeInfoEl.appendChild(listItemEl);
+
+    mealList.appendChild(recipeInfoEl);
 }
 
 var loadRecipes = function () {
@@ -82,7 +98,13 @@ var loadRecipes = function () {
 
     savedReipes = JSON.parse(savedReipes);
 
-    // console.log(savedReipes);
+    console.log(savedReipes);
+
+    createRecipeEl(savedReipes);
+
+    // for (i = 0; i < savedReipes.length; i++) {
+    //     createRecipeEl(savedReipes[i]);
+    // }
 
 }
 
