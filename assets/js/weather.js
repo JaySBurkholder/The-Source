@@ -37,10 +37,14 @@ fetch(requestLocationURL + "&" + locationKey)
 
 
 
+var userLocation = function() {
+    // need to have user input send city name to myptv api
+    // myptv api needs to convert this info to lat/long
+    // myptv api needs to send lat/long to weatherbit api
+    // weatherbit api needs to concatenate var userLocation into fetch request
+}
 
-// function = callLocationAPI(data){
-//     // call other api with data
-// }
+
 
 
 // // // sending location API data to weather API
