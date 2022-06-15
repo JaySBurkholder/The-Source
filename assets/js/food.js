@@ -26,25 +26,11 @@ var searchRecipeType = function () {
                     "mealImage": image
                 };
 
+                console.log(mealObj);
+
 
                 getDetails(mealObj);
 
-                // for (var i = 0; i < recipeData.length; i++) {
-                //     console.log(recipeData.results[i]);
-                // }
-
-                // for (const [keys, values] of Object.entries(recipeData.results[0])) {
-                //     console.log(`${keys}: ${values}`);
-                // }
-
-
-
-
-                // console.log("recipe data", recipeData);
-                // console.log("id", recipeData[0].id);
-                // console.log("title", recipeData[0].title);
-                // console.log("image", recipeData[0].image);
-                // console.log("nutrients", recipeData[0].nutrients);
             });
         });
 }
