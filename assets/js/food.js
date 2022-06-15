@@ -1,3 +1,6 @@
+var submit = document.getElementById("submit");
+
+
 // variables for querySearch
 var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
 var query = "chicken"
@@ -13,7 +16,7 @@ var searchRecipeType = function () {
         .then(function (response) {
             response.json().then(function (data) {
 
-                // console.log("chicken recipe", data);
+                console.log("chicken recipe", data);
 
                 var recipeData = data
                 var id = recipeData.results[0].id;
@@ -30,7 +33,6 @@ var searchRecipeType = function () {
 
 
                 getDetails(mealObj);
-
             });
         });
 }
@@ -54,44 +56,40 @@ var getDetails = function (details) {
                 console.log(data);
 
             });
-
-
-
         });
-
 }
 
-
-
-
-
-// // variables for userSearch
-// var queryId = "654959";
-// var text3 = "https://api.spoonacular.com/recipes/";
-// var text4 = "/ingredientWidget.json?";
-// var newText1 = text3 + queryId;
-// var newText2 = text4 + apiKey;
-// var userSearch = newText1.concat(newText2);
-
-// console.log(userSearch);
-
-
-// search a recipe by id
-// var searchRecipeData = function () {
-//     var response = fetch(userSearch)
-//         .then(function (response) {
-//             response.json().then(function (data) {
-//                 // console.log("specific recipe", data);
-
-//                 var recipe = data;
-
-//                 // iterate(recipe);
-//             });
-//         });
-
-//     localStorage.setItem('recipeData', response);
-// }
-
 searchRecipeType();
-
 getDetails();
+
+
+
+
+
+
+
+
+// switch (taskDataObj.status) {
+//     case "Monday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     case "Tuesday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
+//         tasksInProgressEl.append(listItemEl);
+//         break;
+//     case "Wednseday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
+//         tasksCompletedEl.append(listItemEl);
+//         break;
+//     case "Thursday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     case "Friday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     default:
+//         console.log("Something went wrong!");
+// }
