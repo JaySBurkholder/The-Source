@@ -28,7 +28,6 @@ fetch(requestLocationURL + locationKey)
     });
 
 
-<<<<<<< HEAD
     const submit = document.getElementById('submit');
     
     submit.addEventListener('keyup', (e) + {
