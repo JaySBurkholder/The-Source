@@ -8,91 +8,108 @@ var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
 var text2 = query + "&" + apiKey;
 var querySearch = text1.concat(text2);
 
-console.log(querySearch);
+// console.log(querySearch);
 
 // search for a recipe-type
 var searchRecipeType = function () {
     var response = fetch(querySearch)
         .then(function (response) {
             response.json().then(function (data) {
-                // console.log("chicken recipe", data);
+
+                console.log("chicken recipe", data);
 
                 var recipeData = data
-                // console.log(recipeData.results[0].id);
-                // console.log(recipeData.results[0].title);
-                // console.log(recipeData.results[0].image);
+                var id = recipeData.results[0].id;
+                var title = recipeData.results[0].title;
+                var image = recipeData.results[0].image;
 
-
-                // for (var i = 0; i < recipeData.length; i++) {
-                //     console.log(recipeData.results[i]);
-                // }
-
-                for (const [keys, values] of Object.entries(recipeData.results[0])) {
-                    console.log(`${keys}: ${values}`);
-                }
-
-
-                // console.log("recipe data", recipeData);
-                // console.log("id", recipeData[0].id);
-                // console.log("title", recipeData[0].title);
-                // console.log("image", recipeData[0].image);
-                // console.log("nutrients", recipeData[0].nutrients);
+                var mealObj = {
+                    "mealId": id,
+                    "mealtitle": title,
+                    "mealImage": image
+                };
+                getDetails(mealObj);
             });
         });
-
-
-    localStorage.setItem('recipeType', response);
 }
 
-// variables for userSearch
-var queryId = "654959";
-var text3 = "https://api.spoonacular.com/recipes/";
-var text4 = "/ingredientWidget.json?";
-var newText1 = text3 + queryId;
-var newText2 = text4 + apiKey;
-var userSearch = newText1.concat(newText2);
+var getDetails = function (details) {
+    var id = details.mealId;
 
-console.log(userSearch);
+    var text3 = `https://api.spoonacular.com/recipes/${id}`;
+    var text4 = "/ingredientWidget.json?";
+    var newText1 = text3;
+    var newText2 = text4 + apiKey;
+    var userSearch = newText1.concat(newText2);
 
+    var details = fetch(userSearch)
+        .then(function (details) {
+            details.json().then(function (data) {
+                console.log(data);
 
-// search a recipe by id
-var searchRecipeData = function () {
-    var response = fetch(userSearch)
-        .then(function (response) {
-            response.json().then(function (data) {
-                // console.log("specific recipe", data);
             });
         });
 
-    localStorage.setItem('recipeData', response);
 }
 
 searchRecipeType();
+getDetails();
 
-searchRecipeData();
 
 
-switch (taskDataObj.status) {
-    case "Monday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
-      tasksToDoEl.append(listItemEl);
-      break;
-    case "Tuesday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
-      tasksInProgressEl.append(listItemEl);
-      break;
-    case "Wednseday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
-      tasksCompletedEl.append(listItemEl);
-      break;
-      case "Thursday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
-      tasksToDoEl.append(listItemEl);
-      break;
-      case "Friday":
-      taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
-      tasksToDoEl.append(listItemEl);
-      break;
-    default:
-      console.log("Something went wrong!");
-  }
+
+
+// // variables for userSearch
+// var queryId = "654959";
+// var text3 = "https://api.spoonacular.com/recipes/";
+// var text4 = "/ingredientWidget.json?";
+// var newText1 = text3 + queryId;
+// var newText2 = text4 + apiKey;
+// var userSearch = newText1.concat(newText2);
+
+// console.log(userSearch);
+
+
+// search a recipe by id
+// var searchRecipeData = function () {
+//     var response = fetch(userSearch)
+//         .then(function (response) {
+//             response.json().then(function (data) {
+//                 // console.log("specific recipe", data);
+
+//                 var recipe = data;
+
+//                 // iterate(recipe);
+//             });
+//         });
+
+//     localStorage.setItem('recipeData', response);
+// }
+
+
+
+
+// switch (taskDataObj.status) {
+//     case "Monday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     case "Tuesday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
+//         tasksInProgressEl.append(listItemEl);
+//         break;
+//     case "Wednseday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
+//         tasksCompletedEl.append(listItemEl);
+//         break;
+//     case "Thursday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     case "Friday":
+//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
+//         tasksToDoEl.append(listItemEl);
+//         break;
+//     default:
+//         console.log("Something went wrong!");
+// }
