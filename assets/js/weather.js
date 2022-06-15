@@ -30,6 +30,10 @@ fetch(requestLocationURL + "&" + locationKey)
     })
     .catch(error => {
         console.log("an error occurred, please try again")
+    })
+    .then(function(response) {
+        fetch
+    }
     });
 
 
@@ -53,19 +57,6 @@ var userLocation = function() {
 
 
 
-// // // sending location API data to weather API
-// // fetch(requestWeatherURL + weatherKey + '&' + userLocation)
-// // .then(response => {
-// //     // handle the response
-// //     callLocationAPI()
-// // })
-// // .catch(error => {
-// // // handle the error
-// // console.log("an error ocurred")
-// // }
-
-
-// // user input field for location data
 
 
 // // putting json data into html
@@ -110,3 +101,15 @@ var userLocation = function() {
 // "count":1
 
 // }
+
+
+
+// ====>user input
+// ====>data gets sent to geo api
+// ====>geo api returns data
+// ====>that data gets put into function var=userLocation
+// ====>userLocation gets concatenated into fetch function for weather api
+// ====>weather api returns data
+// ====>data goes into HTML
+// ====>
+// ====>
