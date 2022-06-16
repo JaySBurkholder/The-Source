@@ -3,7 +3,7 @@ document.getElementById("submit").onclick = function () {
     console.log("search", name);
 
     // search variable to call api
-    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=fb6493758b334242b9509ad7234d0216`
+    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=c303a20285744f93b59a3e48d801c745`
 
     searchRecipeType(querySearch);
 
@@ -57,7 +57,7 @@ var getDetails = async function (details) {
     var id = details.mealId;
 
     // decalring variables for second api call
-    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
+    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=c303a20285744f93b59a3e48d801c745`;
 
     // second api call to pull instructions for meal
     var details = await fetch(userSearch)
