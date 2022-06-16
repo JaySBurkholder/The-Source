@@ -96,5 +96,3 @@ fetch(requestWeatherURL + weatherKey)
 //     document.querySelector('#forecast').append(forecast)
 // }
 
-
-
