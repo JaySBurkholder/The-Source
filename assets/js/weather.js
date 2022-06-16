@@ -21,12 +21,10 @@ fetch(requestWeatherURL + weatherKey)
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
-var searchText = function()
+var searchText = "city_name"
 
 // encode the string input values in searchText
-function(encodeSearchText){
-    encodeURIComponent(searchText)
-});
+    encodeURIComponent(searchText);
 
 // calling location API
 fetch(requestLocationURL + searchText + "&" + locationKey)
