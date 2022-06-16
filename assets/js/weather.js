@@ -24,9 +24,7 @@ var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNG
 var searchText = "city_name"
 
 // encode the string input values in searchText
-    encodeURIComponent(searchText)
-});
-
+    encodeURIComponent(searchText);
 
 // calling location API
 fetch(requestLocationURL + searchText + "&" + locationKey)
