@@ -120,6 +120,15 @@ var loadRecipes = function () {
 
 
 
+const searchInput = document.querySelector("[data-search]")
+
+searchInput.addEventListener("Input", e => {
+    const value = e.target.value
+    console.log(value)
+})
+
+
+
 loadRecipes();
 
 searchRecipeType();
@@ -189,3 +198,16 @@ searchRecipeData();
 // console.log(image);
 
 // listItemEl.appendChild(imageEl);
+
+// function search_food() {
+//     let input = document.getElementById('searchbar').value
+//     // input=input.toLowerCase();
+//     let x = document.getElementsByClassName('food');
+      
+    // for (i = 0; i < x.length; i++) { 
+    //     if (!x[i].innerHTML.toLowerCase().includes(input)) {
+    //         x[i].style.display="none";
+    //     }        }
+    // }
+
+
