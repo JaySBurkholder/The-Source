@@ -210,3 +210,9 @@ getDetails();
 // var text2 = query + "&" + apiKey;
 // // adding variables together to make api call
 // var querySearch2 = text1.concat(text2);
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
