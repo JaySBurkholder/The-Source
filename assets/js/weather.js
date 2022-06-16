@@ -94,5 +94,5 @@ fetch(requestWeatherURL + weatherKey)
 //     var forecast = document.createElement('div')
 //     // forecast.innerHTML = weatherinfo
 //     document.querySelector('#forecast').append(forecast)
-// }
+// });
 
