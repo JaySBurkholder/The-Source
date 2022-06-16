@@ -41,7 +41,7 @@ fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
         })
             .catch(error => {
                     console.log("an error occurred, please try again")
-            // })
+            })
 
     // pull long/lat id from array inside of locationData
                 .then(function (response) {
@@ -50,9 +50,9 @@ fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
 
                     var longLatObj = {
                         // whatever id longitude and latitude are defined as in the JSON data :id
-                    }
-
-    });
+                    };
+                });
+            });
 
 
 
@@ -94,5 +94,5 @@ fetch(requestWeatherURL + weatherKey)
 //     var forecast = document.createElement('div')
 //     // forecast.innerHTML = weatherinfo
 //     document.querySelector('#forecast').append(forecast)
-// });
+
 
