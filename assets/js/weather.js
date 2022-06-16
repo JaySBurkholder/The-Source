@@ -16,6 +16,7 @@ fetch(requestWeatherURL + weatherKey)
         console.log("an error occurred, please try again")
     });
 
+
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
@@ -40,14 +41,14 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
     });
 
 
+    
     // Submit location info form
     const submit = document.getElementById('submit');
     
     submit.addEventListener('keyup', (e) + {
 
-   
     });
-    // var searchText
+    // = var searchText
 
 
 
@@ -68,18 +69,8 @@ var userLocation = function() {
 //     for loop, each loop
 //     var forecast = document.createElement('div')
 //     // forecast.innerHTML = weatherinfo
-//     document.querySelector().append(forecast)
-
-
+//     document.querySelector('#forecast').append(forecast)
 // }
-
-// fetch()
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     });
 
 
 
