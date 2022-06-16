@@ -21,14 +21,13 @@ fetch(requestWeatherURL + weatherKey)
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
-var searchText = "city_name"
 
 // encode the string input values in searchText
     encodeURIComponent(searchText);
 
 // calling location API
 // + searchText + "&"
-fetch(requestLocationURL + "&" + locationKey)
+fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
     .then(function(response) {
         return response.json();
     })
@@ -55,13 +54,19 @@ fetch(requestLocationURL + "&" + locationKey)
     // submitCity.addEventListener('keyup', (e) + {
 
     // });
-
-    function input_location() {
-        var input = document.getElementById('searchbar').value 
-
-        var cityName = document.getElementsByClassName('city_name');
+    document.getElementById("cityInputField").onclick = function() {
+        var cityName = document.getElementById("userInput").value;
         console.log(cityName)
-    } 
+
+    }
+
+
+    // function input_location() {
+    //     var input = document.getElementById('searchbar').value 
+
+    //     var cityName = document.getElementsByClassName('city_name');
+    //     console.log(cityName)
+    // } 
 
 
     // = var searchText
