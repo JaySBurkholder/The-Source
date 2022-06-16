@@ -1,22 +1,20 @@
 document.getElementById("submit").onclick = function () {
     var name = document.getElementById("recipeSearch").value;
     console.log("search", name);
-}
 
-// search variables
-var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
-var query = "chicken";
-var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
-var text2 = query + "&" + apiKey;
-// adding variables together to make api call
-var querySearch = text1.concat(text2);
+    // search variable to call api
+    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=fb6493758b334242b9509ad7234d0216`
+
+    searchRecipeType(querySearch);
+
+}
 
 
 // variables for querySearch
 
 // first api call that searches a type of recipe (pulls recipe id that we will use in next call)
-var searchRecipeType = function () {
-    var response = fetch(querySearch)
+var searchRecipeType = async function (querySearch) {
+    var response = await fetch(querySearch)
         .then(function (response) {
             response.json().then(function (recipeData) {
                 var someResults = recipeData.results.slice(0, 5);
@@ -50,25 +48,24 @@ var searchRecipeType = function () {
                     "mealImage": image
                 };
 
-                // recipeTitleEl(mealObj);
                 getDetails(mealObj);
             });
         });
 }
 
-var getDetails = function (details) {
-    const id = details.mealId;
+var getDetails = async function (details) {
+    var id = details.mealId;
 
     // decalring variables for second api call
-    const text3 = `https://api.spoonacular.com/recipes/${id}`;
-    const text4 = "/ingredientWidget.json?";
-    const newText1 = text3;
-    const newText2 = text4 + apiKey;
-    // adding variables together to make the api all
-    const userSearch = newText1.concat(newText2);
+    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
 
     // second api call to pull instructions for meal
-    var details = fetch(userSearch)
+    var details = await fetch(userSearch)
         .then(function (details) {
             details.json().then(function (recipe) {
 
@@ -118,8 +115,6 @@ var loadRecipes = function () {
 }
 
 loadRecipes();
-
-searchRecipeType();
 
 getDetails();
 
@@ -208,3 +203,10 @@ getDetails();
 //function () {
 //     document.getElementById("recipeSearch").value;
 // }
+
+// var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
+// var query = "chicken";
+// var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
+// var text2 = query + "&" + apiKey;
+// // adding variables together to make api call
+// var querySearch2 = text1.concat(text2);
