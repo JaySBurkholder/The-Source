@@ -21,8 +21,11 @@ var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?s
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
 var searchText = function()
-// encode the string input
-encodeURIComponent(searchText)
+
+// encode the string input values in searchText
+function(encodeSearchText){
+    encodeURIComponent(searchText)
+});
 
 // calling location API
 fetch(requestLocationURL + searchText + "&" + locationKey)
