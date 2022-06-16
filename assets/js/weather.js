@@ -4,27 +4,8 @@
 // // var userLocation = function()
 
 
-<<<<<<< HEAD
-// // // fetch weather data
-// fetch(requestWeatherURL + weatherKey)
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     });
-
-
-// geolocation API info
-var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
-var locationKey = "Key=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
-
-// calling location API
-fetch(requestLocationURL + locationKey)
-=======
 // // fetch weather data
 fetch(requestWeatherURL + weatherKey)
->>>>>>> JayBurkholder
     .then(function(response) {
         return response.json();
     })
@@ -36,26 +17,11 @@ fetch(requestWeatherURL + weatherKey)
     });
 
 
-<<<<<<< HEAD
-    const submit = document.getElementById('submit');
-    
-    submit.addEventListener('keyup', (e) + {
-        
-
-    });
-
-
-
-// // geolocation API info
-// var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
-// var locationKey = "Key=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
-=======
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
 var searchText = function()
->>>>>>> JayBurkholder
 
 // encode the string input values in searchText
 function(encodeSearchText){
@@ -86,19 +52,6 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
 
 
 
-<<<<<<< HEAD
-
-// // // sending location API data to weather API
-// // fetch(requestWeatherURL + weatherKey + '&' + userLocation)
-// // .then(response => {
-// //     // handle the response
-// //     callLocationAPI()
-// // })
-// // .catch(error => {
-// // // handle the error
-// // console.log("an error ocurred")
-// // }
-=======
 var userLocation = function() {
     // need to have user input send city name to myptv api
     // myptv api needs to convert this info to lat/long
@@ -107,7 +60,6 @@ var userLocation = function() {
 }
 
 
->>>>>>> JayBurkholder
 
 
 
