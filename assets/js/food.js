@@ -1,16 +1,44 @@
-// variables for querySearch
-var apiKey = "apiKey=d4255eb84b16491988ecc48ddf8e72df"
-var query = "chicken"
+document.getElementById("submit").onclick = function () {
+    var name = document.getElementById("recipeSearch").value;
+    console.log("search", name);
+}
+
+// search variables
+var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
+var query = "chicken";
 var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
 var text2 = query + "&" + apiKey;
 // adding variables together to make api call
 var querySearch = text1.concat(text2);
+
+
+// variables for querySearch
 
 // first api call that searches a type of recipe (pulls recipe id that we will use in next call)
 var searchRecipeType = function () {
     var response = fetch(querySearch)
         .then(function (response) {
             response.json().then(function (recipeData) {
+                var someResults = recipeData.results.slice(0, 5);
+
+                for (i = 0; i < someResults.length; i++) {
+                    var someResultsTitle = someResults[i].title;
+
+                    var showResults = document.getElementById("showResults");
+
+                    var listResultEl = document.createElement("li");
+                    listResultEl.innerHTML = someResultsTitle;
+
+                    var resultInfoEl = document.createElement("div");
+
+                    resultInfoEl.appendChild(listResultEl);
+                    showResults.appendChild(resultInfoEl);
+
+
+                }
+
+                // console.log(results.title[0]);
+
 
                 var id = recipeData.results[0].id;
                 var title = recipeData.results[0].title;
@@ -22,8 +50,7 @@ var searchRecipeType = function () {
                     "mealImage": image
                 };
 
-                // console.log(mealObj);
-
+                // recipeTitleEl(mealObj);
                 getDetails(mealObj);
             });
         });
@@ -31,8 +58,6 @@ var searchRecipeType = function () {
 
 var getDetails = function (details) {
     const id = details.mealId;
-
-    // console.log(id);
 
     // decalring variables for second api call
     const text3 = `https://api.spoonacular.com/recipes/${id}`;
@@ -46,15 +71,11 @@ var getDetails = function (details) {
     var details = fetch(userSearch)
         .then(function (details) {
             details.json().then(function (recipe) {
-                // console.log(data);
-                // console.log(recipe.ingredients);
 
                 // create array of our ingredient objects
                 var ingredientsList = recipe.ingredients.map(function (ingredient) {
                     return { ingredient, amount: ingredient.amount.us }
                 })
-
-                // console.log(ingredientsList);
 
 
                 // send our list of ingredients to local stroage
@@ -78,27 +99,12 @@ var createRecipeEl = function (ingredientsList) {
 
         var recipeInfoEl = document.createElement("div");
 
-        listItemEl.innerHTML = nameIngredient + amountIngredient;
+        listItemEl.innerHTML = nameIngredient + " (" + amountIngredient + ")";
 
         recipeInfoEl.appendChild(listItemEl);
 
         mealList.appendChild(recipeInfoEl);
     }
-    // console.log(ingredientsList);
-    // console.log(ingredientsList[0].ingredient);
-
-
-
-
-    // var mealList = document.getElementById("mealList");
-
-    // var listItemEl = document.createElement("li");
-
-    // var recipeInfoEl = document.createElement("div");
-
-    // ingredientsList = JSON.stringify(ingredientsList);
-    // var ingredientName = savedReipes.ingredient.name;
-
 }
 
 var loadRecipes = function () {
@@ -109,16 +115,7 @@ var loadRecipes = function () {
     }
 
     savedReipes = JSON.parse(savedReipes);
-
-    console.log(savedReipes);
-
-    // for (i = 0; i < savedReipes.length; i++) {
-    //     createRecipeEl(savedReipes[i]);
-    // }
-
 }
-
-
 
 loadRecipes();
 
@@ -133,32 +130,6 @@ getDetails();
 
 
 
-
-
-// switch (taskDataObj.status) {
-//     case "Monday":
-//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
-//         tasksToDoEl.append(listItemEl);
-//         break;
-//     case "Tuesday":
-//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
-//         tasksInProgressEl.append(listItemEl);
-//         break;
-//     case "Wednseday":
-//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
-//         tasksCompletedEl.append(listItemEl);
-//         break;
-//     case "Thursday":
-//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 3;
-//         tasksToDoEl.append(listItemEl);
-//         break;
-//     case "Friday":
-//         taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 4;
-//         tasksToDoEl.append(listItemEl);
-//         break;
-//     default:
-//         console.log("Something went wrong!");
-// }
 
 
 
@@ -194,3 +165,46 @@ getDetails();
 // console.log(image);
 
 // listItemEl.appendChild(imageEl);
+
+
+    // console.log(ingredientsList);
+    // console.log(ingredientsList[0].ingredient);
+
+
+
+
+    // var mealList = document.getElementById("mealList");
+
+    // var listItemEl = document.createElement("li");
+
+    // var recipeInfoEl = document.createElement("div");
+
+    // ingredientsList = JSON.stringify(ingredientsList);
+    // var ingredientName = savedReipes.ingredient.name;
+
+// console.log(savedReipes);
+
+    // for (i = 0; i < savedReipes.length; i++) {
+    //     createRecipeEl(savedReipes[i]);
+    // }
+
+
+// var recipeTitleEl = function (mealObj) {
+//     console.log(mealObj.titleName);
+// }
+
+
+// recipeTitleEl();
+
+// console.log(data);
+// console.log(recipe.ingredients);
+
+// console.log(ingredientsList);
+
+// console.log(id);
+
+// console.log(mealObj);
+
+//function () {
+//     document.getElementById("recipeSearch").value;
+// }
