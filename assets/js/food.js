@@ -114,15 +114,9 @@ var loadRecipes = function () {
     savedReipes = JSON.parse(savedReipes);
 }
 
-<<<<<<< HEAD
 
 
 const searchInput = document.querySelector("[data-search]")
-=======
-loadRecipes();
-
-getDetails();
->>>>>>> develop
 
 searchInput.addEventListener("Input", e => {
     const value = e.target.value
@@ -175,7 +169,6 @@ searchRecipeData();
 
 // listItemEl.appendChild(imageEl);
 
-<<<<<<< HEAD
 // function search_food() {
 //     let input = document.getElementById('searchbar').value
 //     // input=input.toLowerCase();
@@ -188,54 +181,3 @@ searchRecipeData();
     // }
 
 
-=======
-
-    // console.log(ingredientsList);
-    // console.log(ingredientsList[0].ingredient);
-
-
-
-
-    // var mealList = document.getElementById("mealList");
-
-    // var listItemEl = document.createElement("li");
-
-    // var recipeInfoEl = document.createElement("div");
-
-    // ingredientsList = JSON.stringify(ingredientsList);
-    // var ingredientName = savedReipes.ingredient.name;
-
-// console.log(savedReipes);
-
-    // for (i = 0; i < savedReipes.length; i++) {
-    //     createRecipeEl(savedReipes[i]);
-    // }
-
-
-// var recipeTitleEl = function (mealObj) {
-//     console.log(mealObj.titleName);
-// }
-
-
-// recipeTitleEl();
-
-// console.log(data);
-// console.log(recipe.ingredients);
-
-// console.log(ingredientsList);
-
-// console.log(id);
-
-// console.log(mealObj);
-
-//function () {
-//     document.getElementById("recipeSearch").value;
-// }
-
-// var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
-// var query = "chicken";
-// var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
-// var text2 = query + "&" + apiKey;
-// // adding variables together to make api call
-// var querySearch2 = text1.concat(text2);
->>>>>>> develop
