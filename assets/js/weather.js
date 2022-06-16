@@ -20,13 +20,17 @@ fetch(requestWeatherURL + weatherKey)
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
-// search text results from input form
 
-// encode the string input values in searchText
-    encodeURIComponent(searchText);
+// search city name results from input form
+var cityName = function() {
+    document.getElementById("userInput").value;
+}
+
+// encode the string input values in cityName
+    encodeURIComponent(cityName);
 
 // calling location API
-// + searchText + "&"
+// + cityName + "&"
 fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
     .then(function(response) {
         return response.json();
