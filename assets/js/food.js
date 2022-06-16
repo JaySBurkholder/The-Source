@@ -22,8 +22,9 @@ var searchRecipeType = function () {
                     "mealImage": image
                 };
 
-                // console.log(mealObj);
+                console.log(mealObj);
 
+                // recipeTitleEl(mealObj);
                 getDetails(mealObj);
             });
         });
@@ -118,7 +119,12 @@ var loadRecipes = function () {
 
 }
 
+// var recipeTitleEl = function (mealObj) {
+//     console.log(mealObj.titleName);
+// }
 
+
+// recipeTitleEl();
 
 loadRecipes();
 
