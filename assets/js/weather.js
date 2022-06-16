@@ -1,7 +1,7 @@
-// // weather api info
-// var weatherKey = "key=a937108d6e62439e97d0d01f06886bd6"
-// var requestWeatherURL = "https://api.weatherbit.io/v2.0/current?";
-// // var userLocation = function()
+// weather api info
+var weatherKey = "key=a937108d6e62439e97d0d01f06886bd6"
+var requestWeatherURL = "https://api.weatherbit.io/v2.0/current?";
+// var userLocation = function()
 
 
 // // fetch weather data
@@ -18,7 +18,7 @@ fetch(requestWeatherURL + weatherKey)
 
 
 // geolocation API info
-var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
+var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
 var searchText = "city_name"
@@ -27,30 +27,40 @@ var searchText = "city_name"
     encodeURIComponent(searchText);
 
 // calling location API
-fetch(requestLocationURL + searchText + "&" + locationKey)
+// + searchText + "&"
+fetch(requestLocationURL + "&" + locationKey)
     .then(function(response) {
         return response.json();
     })
-    .then(function (locationData) {
-        console.log(locationData);
-    })
-    .catch(error => {
-        console.log("an error occurred, please try again")
+        .then(function (locationData) {
+                console.log(locationData);
+        })
+            .catch(error => {
+                    console.log("an error occurred, please try again")
+            // })
+                // .then(function(longLat) {
+                //     var id=longLat.results[0].id;
+
+                //     var longLat = {
+
+                //     }
+
     });
 
 
     
     // Submit location info form
-    const submit = document.getElementById('submit');
+    // const submit = document.getElementById('submit');
     
-    submitCity.addEventListener('keyup', (e) + {
+    // submitCity.addEventListener('keyup', (e) + {
 
-    });
+    // });
 
     function input_location() {
-        let input = document.getElementById('searchbar').value 
-        // input=input.toLowerCase();
-        let x = document.getElementsByClassName('city_name');
+        var input = document.getElementById('searchbar').value 
+
+        var cityName = document.getElementsByClassName('city_name');
+        console.log(cityName)
     } 
 
 
@@ -59,6 +69,10 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
 
 
     // pull long/lat id from array inside of locationData
+
+
+
+
 
 
 var userLocation = function() {
