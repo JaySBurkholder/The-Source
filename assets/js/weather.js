@@ -20,7 +20,8 @@ fetch(requestWeatherURL + weatherKey)
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText="
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 // search text results from input form
-var searchText = "Charlotte,NC"
+var searchText = function()
+// encode the string input
 encodeURIComponent(searchText)
 
 // calling location API
@@ -37,13 +38,13 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
 
 
     // Submit location info form
-    // const submit = document.getElementById('submit');
+    const submit = document.getElementById('submit');
     
-    // submit.addEventListener('keyup', (e) + {
+    submit.addEventListener('keyup', (e) + {
 
-    encodeURIComponent(searchText)
-    // = var searchText
-    // });
+   
+    });
+    // var searchText
 
 
 
@@ -77,30 +78,6 @@ var userLocation = function() {
 //         console.log(data);
 //     });
 
-
-
-
-    // field descriptions
-
-// {
-// "data":[
-//     lat:
-//     long:
-//     city_name:
-//     country_code:
-//     state_code:
-//     wind_spd:
-//     weather: {
-//         icon:Weather icon code.
-//         code:Weather code.
-//         description: Text weather description.
-//         }
-// }
-// ],
-// "minutely":[...],
-// "count":1
-
-// }
 
 
 
