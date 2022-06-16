@@ -127,16 +127,7 @@ searchRecipeType();
 getDetails();
 
 
-<<<<<<< HEAD
 searchRecipeData();
-=======
-
-
-
-
-
-
->>>>>>> develop
 
 
 // switch (taskDataObj.status) {
