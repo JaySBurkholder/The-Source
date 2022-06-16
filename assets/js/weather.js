@@ -2,7 +2,7 @@
 var weatherKey = "key=a937108d6e62439e97d0d01f06886bd6"
 var requestWeatherURL = "https://api.weatherbit.io/v2.0/current?";
 // var userLocation = function()
-
+// + '&' + userLocation
 
 // // fetch weather data
 fetch(requestWeatherURL + weatherKey)
@@ -30,7 +30,6 @@ var cityName = function() {
     encodeURIComponent(cityName);
 
 // calling location API
-// + cityName + "&"
 fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
     .then(function(response) {
         return response.json();
@@ -41,6 +40,8 @@ fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
             .catch(error => {
                     console.log("an error occurred, please try again")
             // })
+
+    // pull long/lat id from array inside of locationData
                 // .then(function(longLat) {
                 //     var id=longLat.results[0].id;
 
@@ -61,31 +62,13 @@ fetch(requestLocationURL + "&" + cityName + "&" + locationKey)
     document.getElementById("cityInputField").onclick = function() {
         var cityName = document.getElementById("userInput").value;
         console.log(cityName)
-
     }
-
-
-    // function input_location() {
-    //     var input = document.getElementById('searchbar').value 
-
-    //     var cityName = document.getElementsByClassName('city_name');
-    //     console.log(cityName)
-    // } 
-
-
-    // = var searchText
-
-
-
-    // pull long/lat id from array inside of locationData
-
 
 
 
 
 
 var userLocation = function() {
-    // need to have user input send city name to myptv api
     // myptv api needs to convert this info to lat/long
     // myptv api needs to send lat/long to weatherbit api
     // weatherbit api needs to concatenate var userLocation into fetch request
