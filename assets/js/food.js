@@ -10,8 +10,7 @@ document.getElementById("submit").onclick = function () {
 
 }
 
-
-// variables for querySearch
+var recipeDataId = 0
 
 // first api call that searches a type of recipe (pulls recipe id that we will use in next call)
 var searchRecipeType = async function (querySearch) {
@@ -26,6 +25,7 @@ var searchRecipeType = async function (querySearch) {
                     var showResults = document.getElementById("showResults");
 
                     var listResultEl = document.createElement("li");
+                    listResultEl.setAttribute("recipe-data-id", recipeDataId)
                     listResultEl.innerHTML = someResultsTitle;
 
                     var resultInfoEl = document.createElement("div");
@@ -33,10 +33,10 @@ var searchRecipeType = async function (querySearch) {
                     resultInfoEl.appendChild(listResultEl);
                     showResults.appendChild(resultInfoEl);
 
+                    recipeDataId++
+
 
                 }
-
-                // console.log(results.title[0]);
 
 
                 var id = recipeData.results[0].id;
@@ -58,12 +58,7 @@ var getDetails = async function (details) {
     var id = details.mealId;
 
     // decalring variables for second api call
-    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
-    // const text4 = "/ingredientWidget.json?";
-    // const newText1 = text3;
-    // const newText2 = text4 + apiKey;
-    // // adding variables together to make the api all
-    // const idk = newText1.concat(newText2);
+    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=c303a20285744f93b59a3e48d801c745`;
 
     // second api call to pull instructions for meal
     var details = await fetch(userSearch)
@@ -114,6 +109,10 @@ var loadRecipes = function () {
 
     savedReipes = JSON.parse(savedReipes);
 }
+
+// document.querySelector("data-recipe-id").onclick = function () {
+//     console.log("you clicked a recipe");
+// }
 
 loadRecipes();
 
