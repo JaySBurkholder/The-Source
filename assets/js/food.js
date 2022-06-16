@@ -58,11 +58,7 @@ var getDetails = async function (details) {
 
     // decalring variables for second api call
     const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
-    // const text4 = "/ingredientWidget.json?";
-    // const newText1 = text3;
-    // const newText2 = text4 + apiKey;
-    // // adding variables together to make the api all
-    // const idk = newText1.concat(newText2);
+
 
     // second api call to pull instructions for meal
     var details = await fetch(userSearch)
@@ -210,3 +206,9 @@ getDetails();
 // var text2 = query + "&" + apiKey;
 // // adding variables together to make api call
 // var querySearch2 = text1.concat(text2);
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
