@@ -31,8 +31,8 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
     .then(function(response) {
         return response.json();
     })
-    .then(function (data) {
-        console.log(data);
+    .then(function (locationData) {
+        console.log(locationData);
     })
     .catch(error => {
         console.log("an error occurred, please try again")
@@ -43,11 +43,22 @@ fetch(requestLocationURL + searchText + "&" + locationKey)
     // Submit location info form
     const submit = document.getElementById('submit');
     
-    submit.addEventListener('keyup', (e) + {
+    submitCity.addEventListener('keyup', (e) + {
 
     });
+
+    function input_location() {
+        let input = document.getElementById('searchbar').value 
+        // input=input.toLowerCase();
+        let x = document.getElementsByClassName('city_name');
+    } 
+
+
     // = var searchText
 
+
+
+    // pull long/lat id from array inside of locationData
 
 
 var userLocation = function() {
