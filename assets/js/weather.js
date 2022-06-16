@@ -27,6 +27,7 @@ var searchText = "city_name"
     encodeURIComponent(searchText)
 });
 
+
 // calling location API
 fetch(requestLocationURL + searchText + "&" + locationKey)
     .then(function(response) {
