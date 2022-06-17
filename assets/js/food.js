@@ -102,14 +102,9 @@ var createRecipeEl = function (ingredientsList) {
 
         var listItemEl = document.createElement("li");
 
-        var recipeInfoEl = document.createElement("div");
-        recipeInfoEl.className = "card-section";
-
         listItemEl.innerHTML = nameIngredient + " (" + amountIngredient + ")";
 
-        recipeInfoEl.appendChild(listItemEl);
-
-        mealList.appendChild(recipeInfoEl);
+        mealList.appendChild(listItemEl);
     }
 }
 
