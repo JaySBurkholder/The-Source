@@ -19,7 +19,7 @@
     <div class="recipe-search">
         <h3>Recipe Search</h3>
         <div class="search-container">
-            <form action="/action_page.php">
+            <form>
                 <input id="recipeSearch" type="text" placeholder="Search.." name="search">
                 <div>
                     <button id="submit" class="button alert hollow" type="button">Submit</button>
@@ -29,11 +29,30 @@
         <section id="showResults"></section>
     </div>
 
+
     <!-- Recipe List -->
-    <main class="fiveDays" id="fiveDays">
-        <section class="meals-list-wrapper card">
-            <h2 id="mealName" class="list-title card-divider">Favorite Meals!!</h2>
-            <ul class="meals-list" id="mealList"></ul>
+    <main id="fiveDays" class="grid-container fluid">
+        <section class="grid-x grid-margin-x">
+            <div class="card cell auto">
+                <p id="mealName" class="card-divider">Monday</p>
+                <ul id="mealList"></ul>
+            </div>
+            <div class="card cell auto">
+                <p id="mealName" class="card-divider">Tuesday</p>
+                <ul id="mealList"></ul>
+            </div>
+            <div class="card cell auto">
+                <p id="mealName" class="card-divider">Wednesday</p>
+                <ul id="mealList"></ul>
+            </div>
+            <div class="card cell auto">
+                <p id="mealName" class="card-divider">Thursday</p>
+                <ul id="mealList"></ul>
+            </div>
+            <div class="card cell auto">
+                <p id="mealName" class="card-divider">Friday</p>
+                <ul id="mealList"></ul>
+            </div>
         </section>
     </main>
 
@@ -43,7 +62,7 @@
             <h4>Current Weather</h4>
         </div>
         <div class="card-section">
-            <p>This card makes use of the card-divider element.</p>
+            <p></p>
         </div>
         <form>
             <input type="text" placeholder="Search.." name="search">
