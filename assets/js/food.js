@@ -1,3 +1,4 @@
+
 document.getElementById("submit").onclick = function () {
     var name = document.getElementById("recipeSearch").value;
     console.log("search", name);
@@ -9,8 +10,7 @@ document.getElementById("submit").onclick = function () {
 
 }
 
-
-// variables for querySearch
+var recipeDataId = 0
 
 // first api call that searches a type of recipe (pulls recipe id that we will use in next call)
 var searchRecipeType = async function (querySearch) {
@@ -25,6 +25,7 @@ var searchRecipeType = async function (querySearch) {
                     var showResults = document.getElementById("showResults");
 
                     var listResultEl = document.createElement("li");
+                    listResultEl.setAttribute("recipe-data-id", recipeDataId)
                     listResultEl.innerHTML = someResultsTitle;
 
                     var resultInfoEl = document.createElement("div");
@@ -32,10 +33,10 @@ var searchRecipeType = async function (querySearch) {
                     resultInfoEl.appendChild(listResultEl);
                     showResults.appendChild(resultInfoEl);
 
+                    recipeDataId++
+
 
                 }
-
-                // console.log(results.title[0]);
 
 
                 var id = recipeData.results[0].id;
@@ -114,9 +115,13 @@ var loadRecipes = function () {
     savedReipes = JSON.parse(savedReipes);
 }
 
+// document.querySelector("data-recipe-id").onclick = function () {
+//     console.log("you clicked a recipe");
+// }
+
 loadRecipes();
 
-getDetails();
+// getDetails();
 
 
 
@@ -210,3 +215,9 @@ getDetails();
 // var text2 = query + "&" + apiKey;
 // // adding variables together to make api call
 // var querySearch2 = text1.concat(text2);
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
