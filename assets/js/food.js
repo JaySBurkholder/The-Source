@@ -1,4 +1,3 @@
-
 document.getElementById("submit").onclick = function () {
     var name = document.getElementById("recipeSearch").value;
     console.log("search", name);
@@ -119,13 +118,8 @@ var loadRecipes = function () {
     savedReipes = JSON.parse(savedReipes);
 }
 
-// document.querySelector("data-recipe-id").onclick = function () {
-//     console.log("you clicked a recipe");
-// }
 
 loadRecipes();
-
-// getDetails();
 
 
 
@@ -225,3 +219,7 @@ loadRecipes();
     // const newText2 = text4 + apiKey;
     // // adding variables together to make the api all
     // const idk = newText1.concat(newText2);
+
+    // document.querySelector("data-recipe-id").onclick = function () {
+//     console.log("you clicked a recipe");
+// }
