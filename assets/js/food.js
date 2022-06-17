@@ -40,10 +40,10 @@ var searchRecipeType = async function (querySearch) {
 
                 }
 
-                var title = someResults[0].title;
-                var cardHeader = document.getElementById("mealName");
-                cardHeader.innerHTML = title;
-                console.log(title);
+                // var title = someResults[0].title;
+                // var cardHeader = document.getElementById("mealName");
+                // cardHeader.innerHTML = title;
+                // console.log(title);
 
 
                 var id = recipeData.results[0].id;
@@ -66,11 +66,6 @@ var getDetails = async function (details) {
 
     // decalring variables for second api call
     const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=c303a20285744f93b59a3e48d801c745`;
-    // const text4 = "/ingredientWidget.json?";
-    // const newText1 = text3;
-    // const newText2 = text4 + apiKey;
-    // // adding variables together to make the api all
-    // const idk = newText1.concat(newText2);
 
     // second api call to pull instructions for meal
     var details = await fetch(userSearch)
@@ -95,10 +90,9 @@ var getDetails = async function (details) {
 
 var createRecipeEl = function (ingredientsList) {
     for (var i = 0; i < ingredientsList.length; i++) {
+        var mealList = document.getElementById("mealList1");
         var nameIngredient = ingredientsList[i].ingredient.name;
         var amountIngredient = ingredientsList[i].ingredient.amount.us.value + ingredientsList[i].ingredient.amount.us.unit;
-
-        var mealList = document.getElementById("mealList");
 
         var listItemEl = document.createElement("li");
 
@@ -223,3 +217,9 @@ loadRecipes();
     // document.querySelector("data-recipe-id").onclick = function () {
 //     console.log("you clicked a recipe");
 // }
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
