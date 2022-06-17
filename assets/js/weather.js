@@ -16,6 +16,7 @@ document.getElementById("cityInputField").onclick = function() {
 
 
 
+
 // geolocation API info
 var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
 var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
