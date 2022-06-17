@@ -116,7 +116,7 @@ var loadRecipes = function () {
 
 loadRecipes();
 
-getDetails();
+// getDetails();
 
 
 

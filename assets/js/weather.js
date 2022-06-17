@@ -11,21 +11,21 @@
 // Submit location info form
 document.getElementById("citySubmit").onclick = function () {
     var cityName = document.getElementById("cityInputField").value;
-    console.log("usersCity", cityName);
+    console.log(cityName);
 }
 
-// // city name results from input form
-// var cityName = function() {
-//     document.getElementById("userInput").value;
-// };
+// city name results from input form
+var cityName = function() {
+    document.getElementById("userInput").value;
+};
 
-//     // encode the string input values from cityName
-    // encodeURIComponent(cityName);
+    // encode the string input values from cityName
+    encodeURIComponent(cityName);
 
 
 // geolocation API info
-// var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
-// var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
+var requestLocationURL = "https://api.myptv.com/geocoding/v1/locations/by-text?"
+var locationKey = "apiKey=ZTUyNDk1MDAxYjYzNGRjNWE4OWM1Njg4ZTg5NjFhNmQ6MzRiZTdkNGItMWJiNC00NWI0LTkxZmEtNThlNzA5NmNiZGEw"
 
 
 
@@ -46,17 +46,17 @@ document.getElementById("citySubmit").onclick = function () {
 //                     console.log("an error occurred, please try again")
 //             })
 
-//     // pull long/lat id from array inside of locationData
-//                 .then(function (response) {
-//                     response.json().then(function(longLat) {
-//                     var id=longLat.results[0].id;
+// //     // pull long/lat id from array inside of locationData
+// //                 .then(function (response) {
+// //                     response.json().then(function(longLat) {
+// //                     var id=longLat.results[0].id;
 
-//                     var longLatObj = {
-//                         // whatever id longitude and latitude are defined as in the JSON data :id
-//                     };
-//                 });
-//             });
-//     }
+// //                     var longLatObj = {
+// //                         // whatever id longitude and latitude are defined as in the JSON data :id
+// //                     };
+// //                 });
+// //             });
+// //     }
 
 
 
