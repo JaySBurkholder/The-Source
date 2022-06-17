@@ -24,6 +24,7 @@ var searchRecipeType = async function (querySearch) {
 
                     var showResults = document.getElementById("showResults");
 
+
                     var listResultEl = document.createElement("li");
                     listResultEl.setAttribute("recipe-data-id", recipeDataId)
                     listResultEl.innerHTML = someResultsTitle;
@@ -33,10 +34,17 @@ var searchRecipeType = async function (querySearch) {
                     resultInfoEl.appendChild(listResultEl);
                     showResults.appendChild(resultInfoEl);
 
+                    document
+
                     recipeDataId++
 
 
                 }
+
+                var title = someResults[0].title;
+                var cardHeader = document.getElementById("mealName");
+                cardHeader.innerHTML = title;
+                console.log(title);
 
 
                 var id = recipeData.results[0].id;
@@ -91,6 +99,7 @@ var createRecipeEl = function (ingredientsList) {
         var listItemEl = document.createElement("li");
 
         var recipeInfoEl = document.createElement("div");
+        recipeInfoEl.className = "card-section";
 
         listItemEl.innerHTML = nameIngredient + " (" + amountIngredient + ")";
 
