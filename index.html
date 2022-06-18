@@ -22,7 +22,7 @@
             <form action="/action_page.php">
                 <input id="recipeSearch" type="text" placeholder="Search.." name="search">
                 <div>
-                    <button id="submit" class="hollow button alert" type="button">Submit</button>
+                    <button id="submit" class="button alert hollow" type="button">Submit</button>
                 </div>
             </form>
         </div>
@@ -31,8 +31,8 @@
 
     <!-- Recipe List -->
     <main class="fiveDays" id="fiveDays">
-        <section class="meals-list-wrapper">
-            <h2 id="mealName" class="list-title">Favorite Meals!!</h2>
+        <section class="meals-list-wrapper card">
+            <h2 id="mealName" class="list-title card-divider">Favorite Meals!!</h2>
             <ul class="meals-list" id="mealList"></ul>
         </section>
     </main>
@@ -45,10 +45,12 @@
         <div class="card-section">
             <p>This card makes use of the card-divider element.</p>
         </div>
-        <form>
-            <input type="text" placeholder="Search.." name="search">
-            <button class="hollow button alert" id="submit" type="submit">Submit</button>
-        </form>
+            <form>
+                <input id="cityInputField" type="text" placeholder="cities">
+                <div>
+                    <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+                </div>
+            </form>
     </div>
 
     <footer>
