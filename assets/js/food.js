@@ -1,4 +1,3 @@
-
 document.getElementById("submit").onclick = function () {
     var name = document.getElementById("recipeSearch").value;
     console.log("search", name);
