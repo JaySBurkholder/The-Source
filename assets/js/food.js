@@ -1,140 +1,148 @@
-  function getsource(id){
-    $.ajax({
-      url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=f0d97127e9c84932ad19b3b3239929af",
-      success: function(res){
-        document.getElementById("sourceLink").innerHTML=res.sourceUrl
-        document.getElementById("sourceLink").href=res.sourceUrl
-      }
-    });
-  }
-  
-function getrecipe(q){
-  $.ajax({
-    url:"https://api.spoonacular.com/recipes/search?apiKey=f0d97127e9c84932ad19b3b3239929af&number=5",
-    success: function(res){
-        for (let i = 0; i < 5; i++)
-    document.getElementById("output").apprend(
-        $("<div>").innerHTML=innerHTML="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"'width='100'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
-    .getsource(res.results[i].id)
-    )
-   }
-  }
+document.getElementById("submit").onclick = function () {
+    var name = document.getElementById("recipeSearch").value;
+    console.log("search", name);
 
-// const searchForm = document.querySelector("form");
-// const searchResultDiv = document.querySelector(".search-result");
-// const container = document.querySelector(".container");
-// let searchQuery = "";
-// const APP_ID = "Use Your Own App ID Here";
-// const APP_key = "c303a20285744f93b59a3e48d801c745";
-// // console.log(container)
-// searchForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   searchQuery = e.target.querySelector("input").value;
-//   fetchAPI();
+    // search variable to call api
+    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=fb6493758b334242b9509ad7234d0216`
+
+    searchRecipeType(querySearch);
+
+}
+
+var recipeDataId = 0
+
+// first api call that searches a type of recipe (pulls recipe id that we will use in next call)
+var searchRecipeType = async function (querySearch) {
+    var response = await fetch(querySearch)
+        .then(function (response) {
+            response.json().then(function (recipeData) {
+                var someResults = recipeData.results.slice(0, 5);
+                // add to list
+                addToList(someResults);
+
+            })
+
+            // getDetails(mealObj);
+        });
+}
+
+var addToList = function (resultData) {
+    // var id = resultData.results[0].id;
+    // var title = resultData.results[0].title;
+    // var image = resultData.results[0].image;
+
+    // console.log(resultData);
+
+    var mealObjArr = [];
+
+    for (i = 0; i < resultData.length; i++) {
+        var id = resultData[i].id;
+        var title = resultData[i].title;
+
+        var mealObj = {
+            "mealId": id,
+            "mealTitle": title,
+        };
+
+        mealObjArr.push(mealObj);
+    }
+
+    displayMeal(mealObjArr);
+    // getDetails(mealObjArr);
+}
+
+// storing <ul> with id="results" in variables
+var resultsList = document.getElementById("results");
+var listResultEl = document.createElement("li");
+var selectEl2 = document.createElement("select");
+var myFunction = function () {
+    var x = document.getElementById("mySelect").value;
+    console.log(x);
+}
+
+var selectOptions = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+var displayMeal = function (mealArr) {
+    for (i = 0; i < mealArr.length; i++) {
+        // defining list variables
+        var resultsTitle = mealArr[i].mealTitle;
+        var resultsId = mealArr[i].mealId;
+
+        // defining id of list item and innerhtml text
+        var listResultEl = document.createElement("li");
+        listResultEl.setAttribute("id", resultsId);
+        listResultEl.innerHTML = resultsTitle;
+
+        // append list item to list
+        resultsList.appendChild(listResultEl);
+
+        // select element item
+        var selectEl2 = document.createElement("select");
+        selectEl2.setAttribute("id", "mySelect");
+        selectEl2.setAttribute("onchange", "=myFunction()");
+        listResultEl.appendChild(selectEl2);
+
+        for (j = 0; j < selectOptions.length; j++) {
+            var optionsText = selectOptions[j];
+            // creating option element
+            var optionEl = document.createElement("option");
+            optionEl.setAttribute("value", optionsText);
+            optionEl.textContent = optionsText;
+            selectEl2.appendChild(optionEl);
+
+        }
+
+    }
+}
+
+// selectEl2.addEventListener('change', function (event) {
+//     console.log(selectEl2.value);
 // });
 
-// async function fetchAPI() {
-//   const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=c303a20285744f93b59a3e48d801c745${APP_key}&from=0&to=20`;
-//   const response = await fetch(baseURL);
-//   const data = await response.json();
-//   generateHTML(data.hits);
-//   console.log(data);
-// }
+const updateButton = document.getElementById('submit');
+const favDialog = document.getElementById('favRecipe');
+const outputBox = document.querySelector('output');
+const selectEl = favDialog.querySelector('select');
+const confirmBtn = favDialog.querySelector('#confirmBtn');
+const closeBtn = document.getElementById('closeBtn');
 
-// function generateHTML(results) {
-//   container.classList.remove("initial");
-//   let generatedHTML = "";
-//   results.map((result) => {
-//     generatedHTML += `
-//       <div class="item">
-//         <img src="${result.recipe.image}" alt="img">
-//         <div class="flex-container">
-//           <h1 class="title">${result.recipe.label}</h1>
-//           <a class="view-btn" target="_blank" href="${
-//             result.recipe.url
-//           }">View Recipe</a>
-//         </div>
-//         <p class="item-data">Calories: ${result.recipe.calories.toFixed(2)}</p>
-//         <p class="item-data">Diet label: ${
-//           result.recipe.dietLabels.length > 0
-//             ? result.recipe.dietLabels
-//             : "No Data Found"
-//         }</p>
-//         <p class="item-data">Health labels: ${result.recipe.healthLabels}</p>
-//       </div>
-//     `;
-//   });
-//   searchResultDiv.innerHTML = generatedHTML;
-// }
+// If a browser doesn't support the dialog, then hide the
+// dialog contents by default.
+if (typeof favDialog.showModal !== 'function') {
+    favDialog.hidden = true;
+
+}
+// "Update details" button opens the <dialog> modally
+updateButton.addEventListener('click', function onOpen() {
+    if (typeof favDialog.showModal === "function") {
+        favDialog.showModal();
+    } else {
+        outputBox.value = "Sorry, the <dialog> API is not supported by this browser.";
+    }
+});
+//"Favorite animal" input sets the value of the confirm button
+selectEl2.addEventListener('change', function onSelect(e) {
+    confirmBtn.value = selectEl2.value;
+    console.log(confirmBtn.value)
+});
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+favDialog.addEventListener('close', function onClose() {
+    // outputBox.value = favDialog.returnValue + " button clicked - " + (new Date()).toString();
+});
 
 
 
+// var getDetails = function (details) {
+//     var id = details[0].mealId;
+//     // console.log(details);
+//     // // console.log(id);
 
-
-
-// document.getElementById("submit").onclick = function () {
-//     var name = document.getElementById("recipeSearch").value;
-//     console.log("search", name);
-
-//     // search variable to call api
-//     var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=c303a20285744f93b59a3e48d801c745`
-
-//     searchRecipeType(querySearch);
-
-// }
-
-// var recipeDataId = 0
-
-// // first api call that searches a type of recipe (pulls recipe id that we will use in next call)
-// var searchRecipeType = async function (querySearch) {
-//     var response = await fetch(querySearch)
-//         .then(function (response) {
-//             response.json().then(function (recipeData) {
-//                 var someResults = recipeData.results.slice(0, 5);
-
-//                 for (i = 0; i < someResults.length; i++) {
-//                     var someResultsTitle = someResults[i].title;
-
-//                     var showResults = document.getElementById("showResults");
-
-//                     var listResultEl = document.createElement("li");
-//                     listResultEl.setAttribute("recipe-data-id", recipeDataId)
-//                     listResultEl.innerHTML = someResultsTitle;
-
-//                     var resultInfoEl = document.createElement("div");
-
-//                     resultInfoEl.appendChild(listResultEl);
-//                     showResults.appendChild(resultInfoEl);
-
-//                     recipeDataId++
-
-
-//                 }
-
-
-//                 var id = recipeData.results[0].id;
-//                 var title = recipeData.results[0].title;
-//                 var image = recipeData.results[0].image;
-
-//                 var mealObj = {
-//                     "mealId": id,
-//                     "mealtitle": title,
-//                     "mealImage": image
-//                 };
-
-//                 getDetails(mealObj);
-//             });
-//         });
-// }
-
-// var getDetails = async function (details) {
-//     var id = details.mealId;
 
 //     // decalring variables for second api call
-//     const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=c303a20285744f93b59a3e48d801c745`;
+//     const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
 
 //     // second api call to pull instructions for meal
-//     var details = await fetch(userSearch)
+//     var details = fetch(userSearch)
 //         .then(function (details) {
 //             details.json().then(function (recipe) {
 
@@ -142,6 +150,8 @@ function getrecipe(q){
 //                 var ingredientsList = recipe.ingredients.map(function (ingredient) {
 //                     return { ingredient, amount: ingredient.amount.us }
 //                 })
+
+//                 console.log(ingredientsList);
 
 
 //                 // send our list of ingredients to local stroage
@@ -159,17 +169,15 @@ function getrecipe(q){
 //         var nameIngredient = ingredientsList[i].ingredient.name;
 //         var amountIngredient = ingredientsList[i].ingredient.amount.us.value + ingredientsList[i].ingredient.amount.us.unit;
 
-//         var mealList = document.getElementById("mealList");
+//         // select mealList in html
+//         // var listId = document.getElementById("")
+//         var mealList = document.getElementById("mon");
 
+//         // create listItem and set content
 //         var listItemEl = document.createElement("li");
-
-//         var recipeInfoEl = document.createElement("div");
-
 //         listItemEl.innerHTML = nameIngredient + " (" + amountIngredient + ")";
 
-//         recipeInfoEl.appendChild(listItemEl);
-
-//         mealList.appendChild(recipeInfoEl);
+//         mealList.appendChild(listItemEl);
 //     }
 // }
 
@@ -184,23 +192,121 @@ function getrecipe(q){
 // }
 
 
-// const searchInput = document.querySelector("[data-search]")
-
-// searchInput.addEventListener("Input", e => {
-//     const value = e.target.value
-//     console.log(value)
-// })
-
-
-
 // loadRecipes();
 
-// searchRecipeType();
-
-// getDetails();
 
 
-// searchRecipeData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* old for loop */
+    // loop through object pulled from api and append title to page
+    //  for (i = 0; i < someResults.length; i++) {
+    //     var someResultsTitle = someResults[i].title;
+
+    //     var showResults = document.getElementById("results");
+
+
+    //     var listResultEl = document.createElement("li");
+    //     listResultEl.setAttribute("id", recipeDataId);
+    //     listResultEl.innerHTML = someResultsTitle;
+
+    //     var resultInfoEl = document.createElement("div");
+
+
+    //     var selectEl = document.createElement("select");
+    //     selectEl.setAttribute("id", recipeDataId);
+    //     var selectOptions = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+    //     for (i = 0; i < selectOptions.length; i++) {
+    //         var optionEl = document.createElement("option");
+    //         optionEl.textContent = selectOptions[i];
+    //         optionEl.setAttribute("value", selectOptions[i]);
+
+    //         selectEl.appendChild(optionEl);
+    //     }
+
+
+    //     listResultEl.appendChild(selectEl);
+
+    //     resultInfoEl.appendChild(listResultEl);
+    //     showResults.appendChild(resultInfoEl);
+
+    //     recipeDataId++
+
+
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -237,14 +343,73 @@ function getrecipe(q){
 
 // listItemEl.appendChild(imageEl);
 
-// function search_food() {
-//     let input = document.getElementById('searchbar').value
-//     // input=input.toLowerCase();
-//     let x = document.getElementsByClassName('food');
-      
-    // for (i = 0; i < x.length; i++) { 
-    //     if (!x[i].innerHTML.toLowerCase().includes(input)) {
-    //         x[i].style.display="none";
-    //     }        }
+
+    // console.log(ingredientsList);
+    // console.log(ingredientsList[0].ingredient);
+
+
+
+
+    // var mealList = document.getElementById("mealList");
+
+    // var listItemEl = document.createElement("li");
+
+    // var recipeInfoEl = document.createElement("div");
+
+    // ingredientsList = JSON.stringify(ingredientsList);
+    // var ingredientName = savedReipes.ingredient.name;
+
+// console.log(savedReipes);
+
+    // for (i = 0; i < savedReipes.length; i++) {
+    //     createRecipeEl(savedReipes[i]);
     // }
 
+
+// var recipeTitleEl = function (mealObj) {
+//     console.log(mealObj.titleName);
+// }
+
+
+// recipeTitleEl();
+
+// console.log(data);
+// console.log(recipe.ingredients);
+
+// console.log(ingredientsList);
+
+// console.log(id);
+
+// console.log(mealObj);
+
+//function () {
+//     document.getElementById("recipeSearch").value;
+// }
+
+// var apiKey = "apiKey=fb6493758b334242b9509ad7234d0216"
+// var query = "chicken";
+// var text1 = "https://api.spoonacular.com/recipes/complexSearch?query="
+// var text2 = query + "&" + apiKey;
+// // adding variables together to make api call
+// var querySearch2 = text1.concat(text2);
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
+
+    // document.querySelector("data-recipe-id").onclick = function () {
+//     console.log("you clicked a recipe");
+// }
+
+    // const text4 = "/ingredientWidget.json?";
+    // const newText1 = text3;
+    // const newText2 = text4 + apiKey;
+    // // adding variables together to make the api all
+    // const idk = newText1.concat(newText2);
+
+                    // var title = someResults[0].title;
+                // var cardHeader = document.getElementById("mealName");
+                // cardHeader.innerHTML = title;
+                // console.log(title);

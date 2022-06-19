@@ -15,23 +15,73 @@
     <header class="header">
         <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
-    <section>
-        <input id="search"> <button onclick="getrecipe(document.getElementById('search').value)">Search.</button>
-        <div id="output"></div>
-        <a href="" id="sourceLink"></a> </section>
+
+    <!-- Search recipe area -->
+    <div class="recipe-search">
+        <h3>Recipe Search</h3>
+        <div class="search-container">
+            <form method="dialog">
+                <input id="recipeSearch" type="text" placeholder="Search.." name="search">
+                <button id="submit" class="button alert hollow" type="button">Submit</button>
+            </form>
+        </div>
+        <section></section>
+    </div>
+
+    <!-- Simple modal dialog containing a form -->
+    <dialog id="favRecipe">
+        <form method="dialog">
+            <div>
+                <p>
+                <ul id="results"></ul>
+                </p>
+                <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- end modal-->
+
+
+    <!-- Recipe List -->
+    <main id="fiveDays" class="grid-container fluid">
+        <section class="grid-x grid-margin-x">
+            <div class="card cell auto">
+                <p class="card-divider">Monday</p>
+                <ul id="mon"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Tuesday</p>
+                <ul id="tue"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Wednesday</p>
+                <ul id="wed"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Thursday</p>
+                <ul id="thur"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Friday</p>
+                <ul id="fri"></ul>
+            </div>
+        </section>
+    </main>
 
     <!-- User Location Input Form -->
     <div class="card row mediunm" style="width: 500px;">
         <div class="card-divider">
             <h4>Location Specific Weather</h4>
         </div>
-        <!-- <img src="assets/img/generic/rectangle-1.jpg"> -->
         <div class="card-section">
             <p>Please input your cityy, state, and country.<br> Ex: Charlotte, NC, US.</p>
         </div>
-        <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button onclick="Info()"class="hollow button alert" id="submit" type="submit">Submit</button>
+        <form>
+            <input id="cityInputField" type="text" placeholder="city, state, country">
+            <div>
+                <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -49,4 +99,5 @@
     <script src="./assets/js/food.js"></script>
     <script src="./assets/js/weather.js"></script>
 </body>
+
 </html>
