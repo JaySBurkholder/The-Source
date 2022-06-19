@@ -7,11 +7,13 @@
 // ====>data goes into HTML
 
     
-// Submit location info form and console log it
+// Have user input their location and console log it
 document.getElementById("citySubmit").onclick = function () {
     var cityName = document.getElementById("cityInputField").value;
         console.log(cityName)
+    // give cityName to function cityLocation
         cityLocation(cityName)
+        // give cityName to usercity to be used in HTML header h4
         document.getElementById("usercity").innerHTML = cityName;
 };
 
