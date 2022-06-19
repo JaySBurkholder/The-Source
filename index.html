@@ -13,7 +13,7 @@
 
 <body>
     <header class="header">
-        <h1>Deli<span class="seo">cious Meals</span></h1>
+        <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
 
     <div class="recipe-search">
@@ -36,29 +36,35 @@
             <ul class="meals-list" id="mealList"></ul>
         </section>
     </main>
-
-    <!-- Display Weather -->
-    <div class="card row mediunm" style="width: 400px;">
-        <div class="card-divider">
-            <h4>Current Weather</h4>
-        </div>
-        <div class="card-section">
-            <p>This card makes use of the card-divider element.</p>
-        </div>
-            <form>
-                <input id="cityInputField" type="text" placeholder="cities">
-                <div>
-                    <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
-                </div>
-            </form>
+˜
+  <!-- Display Weather -->
+  <div class="card row mediunm" style="width: 500px;">
+    <div class="card-divider">
+        <h4>Location Specific Weather</h4>
     </div>
+    <div class="card-section">
+        <p>Please input your city, state, and country. Ex: Charlotte, NC, US.</p>
+    </div>
+        <form>
+            <input id="cityInputField" type="text" placeholder="city, state, country">
+            <div>
+                <button id="citySubmit" class="button alert hollow" type="button">Submit</button>˜
+            </div>
+        </form>
+</div>
 
-    <footer>
+<div class="weather box" style="width: 500px;">
+    <div class="weather">
+        <h4>Displaying Current Weather for <span id="usercity"></span></h4>
+    </div>
+</div>
 
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/food.js"></script>
-    <script src="./assets/js/weather.js"></script>
+<footer>
+
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./assets/js/food.js"></script>
+<script src="./assets/js/weather.js"></script>
 </body>
 
 </html>
