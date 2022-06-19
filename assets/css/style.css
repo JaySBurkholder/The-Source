@@ -4,6 +4,28 @@
     margin: 0;
 }
 
+
+/* color pallete ideas: */
+colgroup { 
+color: #5603AD, #8367C7, #B3E9C7, #C2F8CB, #F0FFF1
+
+
+#388659, #52AA5E, #52AA8A, #3AAED8, #2BD9FE
+
+
+#069E2D, #058E3F, #04773B, #036016, #03440c
+
+
+#D88C9A, #F2D0A9, #F1E3D3, #99C1B9, #8E7DBE
+
+
+#FF6B35, #F7C59F, #EFEFD0, #004E89, #1A659E
+
+
+#DAFFED, #9BF3F0, #473198, #4A0D67, #ADFC92
+}
+
+
 body {
     background-color: #d9dcd6;
 }

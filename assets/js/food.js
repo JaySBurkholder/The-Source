@@ -247,4 +247,3 @@ function getrecipe(q){
     //         x[i].style.display="none";
     //     }        }
     // }
-

@@ -13,7 +13,7 @@
 
 <body>
     <header class="header">
-        <h1>Deli<span class="seo">cious Meals</span></h1>
+        <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
     <section>
         <input id="search"> <button onclick="getrecipe(document.getElementById('search').value)">Search.</button>
@@ -21,18 +21,24 @@
         <a href="" id="sourceLink"></a> </section>
 
     <!-- Display Weather -->
-    <div class="card row mediunm" style="width: 400px;">
+    <div class="card row mediunm" style="width: 500px;">
         <div class="card-divider">
-            <h4>Current Weather</h4>
+            <h4>Location Specific Weather</h4>
         </div>
         <!-- <img src="assets/img/generic/rectangle-1.jpg"> -->
         <div class="card-section">
-            <p>This card makes use of the card-divider element.</p>
+            <p>Please input your city, state, and country.<br> Ex: Charlotte, NC, US.</p>
         </div>
         <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search">
             <button onclick="Info()"class="hollow button alert" id="submit" type="submit">Submit</button>
         </form>
+    </div>
+
+    <div class="weather box" style="width: 500px;">
+        <div class="weather">
+            <h4>Displaying Current Weather for <span id="usercity"></span></h4>
+        </div>
     </div>
 
     <footer>
