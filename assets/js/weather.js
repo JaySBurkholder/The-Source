@@ -62,32 +62,41 @@ var weatherForecast = async function(weather) {
 
 
     // Display current weather and creating elements
-var displayWeather = function(weather, searchCity) {
+var displayWeather = function(weather, forecast) {
     currrentWeather.textContent = "";
-    cityInputSearch.textContent = searchCity;
+    cityInputSearch.textContent = forecast;
 
     var currentDay = document.createElement("span")
     currentDay.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
     cityInputSearch.appendChild(currentDay);
 
-    var icons = document.createElement("img")
-    icons.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
-    cityInputSearch.appendChild(icons);
 
-    var temperature = document.createElement("span");
-    temperature.textContent = "Temperature: " + weather.main.temp + " °F";
-    temperature.classList = "list-group-item"
 
-    var humid = document.createElement("span");
-    humid.textContent = "Humidity: " + weather.main.humidity + " %";
-    humid.classList = "list-group-item"
+    var currentDay = function (forecastData) {
+        for (var i = 0; i < forecastData.length; i++) {
+            var weatherWeather = forecastData[i].main.value;
+        }
+    }
 
-    var windSpeed = document.createElement("span");
-    windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
-    windSpeed.classList = "list-group-item"
-    currrentWeather.appendChild(temperature);
-    currrentWeather.appendChild(humid);
-    currrentWeather.appendChild(windSpeed);
+
+    // var icons = document.createElement("img")
+    // icons.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+    // cityInputSearch.appendChild(icons);
+
+    // var temperature = document.createElement("span");
+    // temperature.textContent = "Temperature: " + weather.main.temp + " °F";
+    // temperature.classList = "list-group-item"
+
+    // var humid = document.createElement("span");
+    // humid.textContent = "Humidity: " + weather.main.humidity + " %";
+    // humid.classList = "list-group-item"
+
+    // var windSpeed = document.createElement("span");
+    // windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
+    // windSpeed.classList = "list-group-item"
+    // currrentWeather.appendChild(temperature);
+    // currrentWeather.appendChild(humid);
+    // currrentWeather.appendChild(windSpeed);
 
     var lat = weather.coord.lat;
     var lon = weather.coord.lon;
