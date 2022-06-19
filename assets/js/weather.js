@@ -17,19 +17,20 @@ document.getElementById("citySubmit").onclick = function () {
 
 // don't have an attitude, grab that longitude and latitude!!!
         var cityLocation = async function(cityName) {
+            // geo api
             var locationKey = "6d8a186db6fcb3e3e9cf63088cc332f9"
             var requestLocationURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${locationKey}`
+            // fetch dat geo api
             await fetch(requestLocationURL)
             .then(function(response) {
                 response.json().then(function(locationData) {
+                    // makin sure that lat and lon return me some yummy info
                     console.log(lat);
                     console.log(lon);
-
-                    
-
+                    // making lat&lon variables
                     var lat = locationData[0].lat;
                     var lon = locationData[0].lon;
-                    
+                    // lat&lon to object
                     var latlonObj = {
                         "latId": lat,
                         "lonId": lon,
@@ -42,13 +43,16 @@ document.getElementById("citySubmit").onclick = function () {
 // forecast function defined, fetch request with new URL that includes lat&lon, then logging it
 var weatherForecast = async function(weather) {
     console.log(weather)
+    // weather api info and grabbing those lat and lon variables
     var weatherKey = "a0095fd1fad6e402ed5242dd036ebc5f"
     var lat = weather.latId
     var lon = weather.lonId
     var requestWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherKey}`
+    // be a good boi and fetch the weather api data!
     await fetch(requestWeatherURL)
     .then(function(forecast) {
         forecast.json().then(function(forecast) {
+            // now we can see the sky's behavior in our console
             console.log(forecast)
         })
     })
