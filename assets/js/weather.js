@@ -62,8 +62,8 @@ var weatherForecast = async function(weather) {
 
 
     // Display current weather and creating elements
-var displayWeather = function(weather, forecast) {
-    currrentWeather.textContent = "";
+var displayWeather = function(forecast) {
+    currentWeather.textContent = "";
     cityInputSearch.textContent = forecast;
 
     var currentDay = document.createElement("span")
