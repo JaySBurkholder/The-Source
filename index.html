@@ -16,41 +16,55 @@
         <h1>Deli<span class="seo">cious Meals</span></h1>
     </header>
 
+    <!-- Search recipe area -->
     <div class="recipe-search">
         <h3>Recipe Search</h3>
         <div class="search-container">
-            <form>
+            <form method="dialog">
                 <input id="recipeSearch" type="text" placeholder="Search.." name="search">
                 <button id="submit" class="button alert hollow" type="button">Submit</button>
-
             </form>
         </div>
-        <section id="showResults"></section>
+        <section></section>
     </div>
+
+    <!-- Simple modal dialog containing a form -->
+    <dialog id="favRecipe">
+        <form method="dialog">
+            <div>
+                <p>
+                <ul id="results"></ul>
+                </p>
+                <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- end modal-->
 
 
     <!-- Recipe List -->
     <main id="fiveDays" class="grid-container fluid">
         <section class="grid-x grid-margin-x">
             <div class="card cell auto">
-                <p id="mon" class="card-divider">Monday</p>
-                <ul id="mealList1"></ul>
+                <p class="card-divider">Monday</p>
+                <ul id="mon"></ul>
             </div>
             <div class="card cell auto">
-                <p id="tue" class="card-divider">Tuesday</p>
-                <ul id="mealList2"></ul>
+                <p class="card-divider">Tuesday</p>
+                <ul id="tue"></ul>
             </div>
             <div class="card cell auto">
-                <p id="wed" class="card-divider">Wednesday</p>
-                <ul id="mealList3"></ul>
+                <p class="card-divider">Wednesday</p>
+                <ul id="wed"></ul>
             </div>
             <div class="card cell auto">
-                <p id="thur" class="card-divider">Thursday</p>
-                <ul id="mealList4"></ul>
+                <p class="card-divider">Thursday</p>
+                <ul id="thur"></ul>
             </div>
             <div class="card cell auto">
-                <p id="fri" class="card-divider">Friday</p>
-                <ul id="mealList5"></ul>
+                <p class="card-divider">Friday</p>
+                <ul id="fri"></ul>
             </div>
         </section>
     </main>
@@ -74,7 +88,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/food.js"></script>
-    <script src="./assets/js/weather.js"></script>
+    <!-- <script src="./assets/js/weather.js"></script> -->
 </body>
 
 </html>
