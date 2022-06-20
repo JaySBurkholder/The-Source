@@ -157,14 +157,14 @@ var createRecipeEl = async function (ingredientsList) {
 }
 
 var loadRecipes = function () {
-    var savedReipe = localStorage.getItem("recipe");
+    var savedRecipe = localStorage.getItem("recipe");
 
-    if (!savedReipes) {
+    if (!savedRecipes) {
         return false;
     }
 
-    savedReipe = JSON.parse(savedReipe);
-    console.log(savedReipe);
+    savedReipe = JSON.parse(savedRecipe);
+    console.log(savedRecipe);
 }
 
 
