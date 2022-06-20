@@ -13,58 +13,92 @@
 
 <body>
     <header class="header">
-        <h1>Deli<span class="seo">cious Meals</span></h1>
+        <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
 
+    <!-- Search recipe area -->
     <div class="recipe-search">
         <h3>Recipe Search</h3>
         <div class="search-container">
-            <form action="/action_page.php">
+            <form method="dialog">
                 <input id="recipeSearch" type="text" placeholder="Search.." name="search">
-                <div>
-                    <button id="submit" class="button alert hollow" type="button">Submit</button>
-                </div>
+                <button id="submit" class="button alert hollow" type="button">Submit</button>
             </form>
         </div>
-        <section id="showResults"></section>
+        <section></section>
     </div>
 
+    <!-- Simple modal dialog containing a form -->
+    <dialog id="favRecipe">
+        <form method="dialog">
+            <div>
+                <p>
+                <ul id="results"></ul>
+                </p>
+                <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- end modal-->
+
+
     <!-- Recipe List -->
-    <main class="fiveDays" id="fiveDays">
-        <section class="meals-list-wrapper card">
-            <h2 id="mealName" class="list-title card-divider">Favorite Meals!!</h2>
-            <ul class="meals-list" id="mealList"></ul>
+    <main id="fiveDays" class="grid-container fluid">
+        <section class="grid-x grid-margin-x">
+            <div class="card cell auto">
+                <p class="card-divider">Monday</p>
+                <ul id="mon"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Tuesday</p>
+                <ul id="tue"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Wednesday</p>
+                <ul id="wed"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Thursday</p>
+                <ul id="thur"></ul>
+            </div>
+            <div class="card cell auto">
+                <p class="card-divider">Friday</p>
+                <ul id="fri"></ul>
+            </div>
         </section>
     </main>
 
-    <!-- Display Weather -->
-    <div class="card row mediunm" style="width: 400px;">
+    <!-- User Location Input Form -->
+    <div class="card column medium-up-3" id="user-input-form">
         <div class="card-divider">
-            <h4>Current Weather</h4>
+            <h4>Location Specific Weather</h4>
         </div>
         <div class="card-section">
-            <p>This card makes use of the card-divider element.</p>
+            <p>Please input your cityy, state, and country.<br> Ex: Charlotte, NC, US.</p>
         </div>
-            <form id="city-form">
-                <input id="city" type="text" placeholder="cities">
-                <div>
-                    <button id="citySubmit" class="button alert hollow" type="submit">Submit</button>
-                </div>
-            </form>
-            <div class="past-search border" id="searchList"></div>
-            <div class="col-12 col-md-9">
-                <div class="row border searched-city" id="current-forecast">
-                    <div class="col-12">
-                        <h2 id="searched-city"></h2>
-                        <div id="current-weather" class="list-group"></div>
-                    </div>  
-                </div>
+        <form>
+            <input id="cityInputField" type="text" placeholder="city, state, country">
+            <div>
+                <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
             </div>
+        </form>
     </div>
 
-    <footer>
+    <!-- Display Weather Box -->
+    <div class="card column medium-up-3" id="display-weather-card">
+        <div class="card-divider" id="weather-title">
+            <h4>Displaying Current Weather for: <span id="usercity"></span></h4>
+        </div>
+        <div>
+            
+        </div>
+    </div>
 
+    <footer class="footer">
+        <h5>Made with love by The-Source. c. 2022</h5>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/food.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
