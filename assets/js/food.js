@@ -109,7 +109,7 @@ favDialog.addEventListener('close', function onClose() {
     resultsList.textContent = "";
 });
 
-var getDetails = function (detailsId, detailsTitle) {
+var getDetails = async function (detailsId, detailsTitle) {
     var id = detailsId;
     var title = detailsTitle;
     var htmlTitle = document.getElementById("title");
@@ -121,7 +121,7 @@ var getDetails = function (detailsId, detailsTitle) {
 
 
     //second api call to pull instructions for meal
-    var details = fetch(userSearch)
+    var details = await fetch(userSearch)
         .then(function (details) {
             details.json().then(function (recipe) {
                 // create array of our ingredient objects
@@ -157,13 +157,14 @@ var createRecipeEl = async function (ingredientsList) {
 }
 
 var loadRecipes = function () {
-    var savedReipes = localStorage.getItem("recipe");
+    var savedReipe = localStorage.getItem("recipe");
 
     if (!savedReipes) {
         return false;
     }
 
-    savedReipes = JSON.parse(savedReipes);
+    savedReipe = JSON.parse(savedReipe);
+    console.log(savedReipe);
 }
 
 
