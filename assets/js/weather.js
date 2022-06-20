@@ -84,14 +84,42 @@ var weatherForecast = async function(weather) {
 
     // reference html element mainForecast
     var mainForecast = document.getElementById("mainForecast");
+    var currentTemp = document.getElementById("currentTemp")
+    var tempMax = document.getElementById("tempMax")
+    var tempMin = document.getElementById("tempMin")
+    var humidity= document.getElementById("humidity")
+    var feelsLike = document.getElementById("feelsLike")
+    var icon = document.getElementById("icon")
+
+
+
+
+
 
     // Display current weather
 var displayForecast = function(forecast) {
     console.log(forecast);
     console.log(forecast.main.temp);
-    var feelsLikeForecast = forecast.main.temp;
-    // console.log(mainForecast);
-    mainForecast.innerHTML = feelsLikeForecast;
+    var weatherCloudsForecast = "Current Weather is " + forecast.weather[0].description;
+    var currentTempForecast = "Current Temperature = " + forecast.main.temp + " °F";
+    var tempMaxForecast = "Max Temperature = " + forecast.main.temp_max + " °F";
+    var tempMinForecast = "Min Temperature = " + forecast.main.temp_min + " °F";
+    var humidityForecast = "Current Humidity = " + forecast.main.humidity;
+    var feelsLikeForecast = "Feels like = " + forecast.main.feels_like + " °F";
+    // var iconForecast = forecast.weather[0].icon
+
+
+    mainForecast.innerHTML = weatherCloudsForecast;
+    currentTemp.innerHTML = currentTempForecast
+    tempMax.innerHTML = tempMaxForecast
+    tempMin.innerHTML = tempMinForecast
+    humidity.innerHTML = humidityForecast
+    feelsLike.innerHTML = feelsLikeForecast
+    icon.innerHTML = iconForecast
+
+// var temp = document.createElement("span");
+//         temp.classList = "card-body text-center";
+//         temp.textContent = dailyForecast.main.temp + " °F";
 };
 
 
