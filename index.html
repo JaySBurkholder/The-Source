@@ -40,7 +40,7 @@
               let recipeCard = document.createElement("div");
               let recipeLink = document.createElement("div");
               recipeLink.innerHTML = "<a href="+res.results[i].sourceUrl+">Recipe Link</a>"
-              recipeCard.innerHTML = "<h1>" + res.results[i].title + "</h1><br><img src='" + res.baseUri + res.results[i].image + "'width='50'/><br> ready in " + res.results[i].readyInMinutes + " minutes";
+              recipeCard.innerHTML = "<h1>" + res.results[i].title + "</h1><br><img src='" + res.baseUri + res.results[i].image + "'width='75'/><br> ready in " + res.results[i].readyInMinutes + " minutes";
               recipeCard.appendChild(recipeLink);
               document.getElementById("output").appendChild(recipeCard);
             }
@@ -65,30 +65,7 @@
 
 
     <!-- Recipe List -->
-    <main id="fiveDays" class="grid-container fluid">
-        <section class="grid-x grid-margin-x">
-            <div class="card cell auto">
-                <p class="card-divider">Monday</p>
-                <ul id="mon"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Tuesday</p>
-                <ul id="tue"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Wednesday</p>
-                <ul id="wed"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Thursday</p>
-                <ul id="thur"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Friday</p>
-                <ul id="fri"></ul>
-            </div>
-        </section>
-    </main>
+
 
     <!-- User Location Input Form -->
     <div class="card column medium-up-3" id="user-input-form">
