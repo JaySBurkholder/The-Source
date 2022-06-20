@@ -25,16 +25,17 @@
                 <button id="submit" class="button alert hollow" type="button">Submit</button>
             </form>
         </div>
-        <section></section>
+        <section>
+            <output></output>
+        </section>
     </div>
 
     <!-- Simple modal dialog containing a form -->
     <dialog id="favRecipe">
         <form method="dialog">
             <div>
-                <p>
+                <h3>Top 5 Results Search Results:</h3>
                 <ul id="results"></ul>
-                </p>
                 <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
             </div>
         </form>
@@ -47,24 +48,8 @@
     <main id="fiveDays" class="grid-container fluid">
         <section class="grid-x grid-margin-x">
             <div class="card cell auto">
-                <p class="card-divider">Monday</p>
+                <h3 id="title" class="card-divider">Recipe Ingredients:</h3>
                 <ul id="mon"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Tuesday</p>
-                <ul id="tue"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Wednesday</p>
-                <ul id="wed"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Thursday</p>
-                <ul id="thur"></ul>
-            </div>
-            <div class="card cell auto">
-                <p class="card-divider">Friday</p>
-                <ul id="fri"></ul>
             </div>
         </section>
     </main>
@@ -102,6 +87,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/food.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="./assets/js/weather.js"></script>
 </body>
 
