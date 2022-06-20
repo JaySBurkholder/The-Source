@@ -160,7 +160,7 @@ var createRecipeEl = async function (ingredientsList) {
 var loadRecipes = function () {
     var savedRecipe = localStorage.getItem("recipe");
 
-    if (!savedRecipes) {
+    if (!savedRecipe) {
         return false;
     }
 
