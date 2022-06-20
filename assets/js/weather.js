@@ -49,14 +49,14 @@ var weatherForecast = async function(weather) {
     var weatherKey = "a0095fd1fad6e402ed5242dd036ebc5f"
     var lat = weather.latId
     var lon = weather.lonId
-    var requestWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherKey}`
+    var requestWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherKey}&units=imperial`
     // Here Fido, fetch the weather api data!
     await fetch(requestWeatherURL)
     .then(function(weatherResponseData) {
         weatherResponseData.json().then(function(forecast) {
             // now we can see the sky's behavior in our console
             // console.log(forecast)
-            displayForecast(forecast)
+            displayForecast(forecast);
         })
     })
 }    
@@ -82,36 +82,63 @@ var weatherForecast = async function(weather) {
 // var mainWeatherForecastEl = document.querySelector("#mainWeatherForecast");
 // titleEl.textContent = "Main Forecast"
 
+    // reference html element mainForecast
+    var mainForecast = document.getElementById("mainForecast");
+    var currentTemp = document.getElementById("currentTemp")
+    var tempMax = document.getElementById("tempMax")
+    var tempMin = document.getElementById("tempMin")
+    var humidity= document.getElementById("humidity")
+    var feelsLike = document.getElementById("feelsLike")
+    var icon = document.getElementById("icon")
+
+
+
 
 
 
     // Display current weather
 var displayForecast = function(forecast) {
     console.log(forecast);
-//    mainWeatherForecastEl.textContent = "";
-//    userInputField.textContent = cityName;
+    console.log(forecast.main.temp);
+    var weatherCloudsForecast = "Current Weather is " + forecast.weather[0].description;
+    var currentTempForecast = "Current Temperature = " + forecast.main.temp + " °F";
+    var tempMaxForecast = "Max Temperature = " + forecast.main.temp_max + " °F";
+    var tempMinForecast = "Min Temperature = " + forecast.main.temp_min + " °F";
+    var humidityForecast = "Current Humidity = " + forecast.main.humidity;
+    var feelsLikeForecast = "Feels like = " + forecast.main.feels_like + " °F";
+    // var iconForecast = forecast.weather[0].icon
+
+
+    mainForecast.innerHTML = weatherCloudsForecast;
+    currentTemp.innerHTML = currentTempForecast
+    tempMax.innerHTML = tempMaxForecast
+    tempMin.innerHTML = tempMinForecast
+    humidity.innerHTML = humidityForecast
+    feelsLike.innerHTML = feelsLikeForecast
+    icon.innerHTML = iconForecast
+
+// var temp = document.createElement("span");
+//         temp.classList = "card-body text-center";
+//         temp.textContent = dailyForecast.main.temp + " °F";
+};
+
+
+
+        // // container for weather data
+        // var mainWeatherForecastEl = document.createElement("div");
+        // mainWeatherForecastEl.classList = "list-item flex-row justify-space-between align-center";
+
+        // // // span element for data type name
+        // // var titleEl = document.createElement("span");
+        // // titleEl.textContent = weatherMain;
+
+        // // append
+        // mainWeatherForecastEl.appendChild(titleEl);
+
+        // // append container to html dom
+        // weatherOnDisplay.appendChild(mainWeatherForecastEl);
     
-    // Loop over weather data
-    for (var i = 0; i < forecast.length; i++) {
 
-        // format weather data name
-        var weatherMain = forecast[i].main;
-
-        // container for weather data
-        var mainWeatherForecastEl = document.createElement("div");
-        mainWeatherForecastEl.classList = "list-item flex-row justify-space-between align-center";
-
-        // span element for data type name
-        var titleEl = document.createElement("span");
-        titleEl.textContent = weatherMain;
-
-        // append
-        mainWeatherForecastEl.appendChild(titleEl);
-
-        // append container to html dom
-        weatherOnDisplay.appendChild(mainWeatherForecastEl);
-    }
-}
 
 
 
