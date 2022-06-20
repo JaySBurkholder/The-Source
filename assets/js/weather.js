@@ -21,7 +21,7 @@ document.getElementById("citySubmit").onclick = function () {
         var cityLocation = async function(cityName) {
             // geo api
             var locationKey = "6d8a186db6fcb3e3e9cf63088cc332f9"
-            var requestLocationURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${locationKey}`
+            var requestLocationURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${locationKey}`
             // fetch dat geo api
             await fetch(requestLocationURL)
             .then(function(response) {
