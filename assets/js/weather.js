@@ -63,11 +63,11 @@ var weatherForecast = async function(weather) {
 
     
 // Loop over weather data
-// var currentDay = function (forecast) {
-//     for (var i = 0; i < forecast.length; i++) {
-//         var weatherMain = forecast[i].main;
-//     }
-// }
+var currentDay = function (forecast) {
+    for (var i = 0; i < forecast.length; i++) {
+        var weatherMain = forecast[i].main;
+    }
+}
 
 
 // // container for weather data
@@ -90,7 +90,7 @@ var weatherForecast = async function(weather) {
     var humidity= document.getElementById("humidity")
     var feelsLike = document.getElementById("feelsLike")
     var icon = document.getElementById("icon")
-
+    
 
 
 
@@ -106,16 +106,20 @@ var displayForecast = function(forecast) {
     var tempMinForecast = "Min Temperature = " + forecast.main.temp_min + " °F";
     var humidityForecast = "Current Humidity = " + forecast.main.humidity;
     var feelsLikeForecast = "Feels like = " + forecast.main.feels_like + " °F";
-    // var iconForecast = forecast.weather[0].icon
+
+// icon image
+    
+    icon.setAttribute("src", `https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`);
+    console.log(icon);
 
 
     mainForecast.innerHTML = weatherCloudsForecast;
-    currentTemp.innerHTML = currentTempForecast
-    tempMax.innerHTML = tempMaxForecast
-    tempMin.innerHTML = tempMinForecast
-    humidity.innerHTML = humidityForecast
-    feelsLike.innerHTML = feelsLikeForecast
-    // icon.innerHTML = iconForecast
+    currentTemp.innerHTML = currentTempForecast;
+    tempMax.innerHTML = tempMaxForecast;
+    tempMin.innerHTML = tempMinForecast;
+    humidity.innerHTML = humidityForecast;
+    feelsLike.innerHTML = feelsLikeForecast;
+
 
 // var temp = document.createElement("span");
 //         temp.classList = "card-body text-center";
@@ -156,24 +160,26 @@ var displayForecast = function(forecast) {
     
 
 
-    // var icons = document.createElement("img")
-    // icons.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
-    // cityInputSearch.appendChild(icons);
+//     var icons = document.createElement("img")
+//     icons.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+//     cityInputSearch.appendChild(icons);
 
-    // var temperature = document.createElement("span");
-    // temperature.textContent = "Temperature: " + weather.main.temp + " °F";
-    // temperature.classList = "list-group-item"
 
-    // var humid = document.createElement("span");
-    // humid.textContent = "Humidity: " + weather.main.humidity + " %";
-    // humid.classList = "list-group-item"
 
-    // var windSpeed = document.createElement("span");
-    // windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
-    // windSpeed.classList = "list-group-item"
-    // currrentWeather.appendChild(temperature);
-    // currrentWeather.appendChild(humid);
-    // currrentWeather.appendChild(windSpeed);
+//     var temperature = document.createElement("span");
+//     temperature.textContent = "Temperature: " + weather.main.temp + " °F";
+//     temperature.classList = "list-group-item"
+
+//     var humid = document.createElement("span");
+//     humid.textContent = "Humidity: " + weather.main.humidity + " %";
+//     humid.classList = "list-group-item"
+
+//     var windSpeed = document.createElement("span");
+//     windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
+//     windSpeed.classList = "list-group-item"
+//     currrentWeather.appendChild(temperature);
+//     currrentWeather.appendChild(humid);
+//     currrentWeather.appendChild(windSpeed);
 
 //     var lat = weather.coord.lat;
 //     var lon = weather.coord.lon;
