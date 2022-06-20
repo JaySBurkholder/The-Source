@@ -20,7 +20,7 @@ document.getElementById("submit").onclick = function () {
     // console.log("search", name);
 
     // search variable to call api
-    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=fb6493758b334242b9509ad7234d0216`
+    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=f0d97127e9c84932ad19b3b3239929af`
 
     searchRecipeType(querySearch);
 
