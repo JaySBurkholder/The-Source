@@ -20,7 +20,7 @@ document.getElementById("submit").onclick = function () {
     // console.log("search", name);
 
     // search variable to call api
-    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=fb6493758b334242b9509ad7234d0216`
+    var querySearch = `https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=d4255eb84b16491988ecc48ddf8e72df`
 
     searchRecipeType(querySearch);
 
@@ -117,7 +117,7 @@ var getDetails = async function (detailsId, detailsTitle) {
 
 
     // variable for second api call
-    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=fb6493758b334242b9509ad7234d0216`;
+    const userSearch = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=d4255eb84b16491988ecc48ddf8e72df`;
 
 
     //second api call to pull instructions for meal
@@ -140,13 +140,14 @@ var getDetails = async function (detailsId, detailsTitle) {
 }
 
 var createRecipeEl = async function (ingredientsList) {
+    var mealList = document.getElementById("mon");
+    mealList.innerHTML = "";
     for (var i = 0; i < ingredientsList.length; i++) {
         // console.log(ingredientsList);
         var nameIngredient = ingredientsList[i].ingredient.name;
         var amountIngredient = ingredientsList[i].ingredient.amount.us.value + ingredientsList[i].ingredient.amount.us.unit;
 
         // select mealList in html
-        var mealList = document.getElementById("mon");
 
         // create listItem and set content
         var listItemEl = document.createElement("li");
@@ -157,14 +158,15 @@ var createRecipeEl = async function (ingredientsList) {
 }
 
 var loadRecipes = function () {
-    var savedReipe = localStorage.getItem("recipe");
+    var savedRecipe = localStorage.getItem("recipe");
 
-    if (!savedReipes) {
+    if (!savedRecipe) {
         return false;
     }
 
-    savedReipe = JSON.parse(savedReipe);
-    console.log(savedReipe);
+    savedRecipe = JSON.parse(savedRecipe);
+    console.log(savedRecipe);
+    createRecipeEl(savedRecipe);
 }
 
 
