@@ -160,22 +160,12 @@ var createRecipeEl = async function (ingredientsList) {
 var loadRecipes = function () {
     var savedRecipe = localStorage.getItem("recipe");
 
-<<<<<<< HEAD
-    if (!savedRecipe) {
-        return false;
-    }
-
-    savedRecipe = JSON.parse(savedRecipe);
-    console.log(savedRecipe);
-    createRecipeEl(savedRecipe);
-=======
     if (!savedRecipes) {
         return false;
     }
 
     savedReipe = JSON.parse(savedRecipe);
     console.log(savedRecipe);
->>>>>>> JayBurkholder
 }
 
 
