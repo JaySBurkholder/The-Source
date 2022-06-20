@@ -45,12 +45,21 @@
         <div class="card-section">
             <p>This card makes use of the card-divider element.</p>
         </div>
-            <form>
-                <input id="cityInputField" type="text" placeholder="cities">
+            <form id="city-form">
+                <input id="city" type="text" placeholder="cities">
                 <div>
-                    <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+                    <button id="citySubmit" class="button alert hollow" type="submit">Submit</button>
                 </div>
             </form>
+            <div class="past-search border" id="searchList"></div>
+            <div class="col-12 col-md-9">
+                <div class="row border searched-city" id="current-forecast">
+                    <div class="col-12">
+                        <h2 id="searched-city"></h2>
+                        <div id="current-weather" class="list-group"></div>
+                    </div>  
+                </div>
+            </div>
     </div>
 
     <footer>
@@ -58,6 +67,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/food.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="./assets/js/weather.js"></script>
 </body>
 
