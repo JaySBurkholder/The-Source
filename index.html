@@ -12,13 +12,13 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="menu">
         <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
 
     <!-- Search recipe area -->
     <div class="recipe-search">
-        <h3>Recipe Search</h3>
+        <h3>Recipe Search:</h3>
         <div class="search-container">
             <form method="dialog">
                 <input id="recipeSearch" type="text" placeholder="Search.." name="search">
@@ -34,9 +34,15 @@
     <dialog id="favRecipe">
         <form method="dialog">
             <div>
-                <h3>Top 5 Results Search Results:</h3>
-                <ul id="results"></ul>
-                <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
+                <div class="modal-header">
+                    <h3>Top 5 Results Search Results:</h3>
+                </div>
+                <div class="modal-body">
+                    <ul id="results"></ul>
+                </div>
+                <div class="modal-footer grid-x">
+                    <button id="confirmBtn" value="default" class="button primary cell auto">Close</button>
+                </div>
             </div>
         </form>
     </dialog>
@@ -54,20 +60,22 @@
         </section>
     </main>
 
-    <!-- User Location Input Form -->
-    <div class="card column medium-up-3" id="user-input-form">
-        <div class="card-divider">
-            <h4>Location Specific Weather</h4>
-        </div>
-        <div class="card-section">
-            <p>Please input your city, state, and country.<br> Ex: Charlotte, NC, US.</p>
-        </div>
-        <form>
-            <input id="cityInputField" type="text" placeholder="city, state, country">
-            <div>
-                <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+    <!-- Display Weather -->
+    <div class="">
+        <div class="card cell medium" style="width: 500px;">
+            <div class="card-divider">
+                <h4>Location Specific Weather</h4>
             </div>
-        </form>
+            <div class="card-section">
+                <p>Please input your city, state, and country.<br> Ex: Charlotte, NC, US.</p>
+            </div>
+            <form>
+                <input id="cityInputField" type="text" placeholder="city, state, country">
+                <div>
+                    <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Display Weather Box -->
@@ -77,7 +85,7 @@
         </div class="weather-on-display">
 
         <div>
-            
+
         </div>
     </div>
 
