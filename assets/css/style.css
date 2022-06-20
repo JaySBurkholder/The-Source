@@ -58,15 +58,6 @@ header nav {
     font-size: 20px;
 }
 
-header nav ul {
-    list-style-type: none;
-    display: inline-flex;
-}
-
-header nav ul li {
-    margin-left: 25px;
-}
-
 .recipe-search {
     height: 200px;
 }
@@ -105,6 +96,7 @@ form {
     width: 300px;
   }
 
+  /* calendar begin*/
 .fiveDays {
     flex: 1;
     display: flex;
@@ -132,12 +124,18 @@ form {
     border-radius: 12px;
     border: 2px solid black;
   }
+/* calendar end */
 
   .card {
     padding: 20px;
     ;
   }
   
+  #user-input-form {
+    margin: 20px;
+    flex: 100%
+  }
+
   @media screen and (max-width: 980px) {
     form {
       flex: 1 100%;
@@ -151,4 +149,18 @@ form {
       flex-basis: 100%;
     }
   
+    #display-weather-card {
+      margin: 20px;
+      flex: 100%
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background-color: #8d9ca4;
+      color: #ffffff;
   }
+}

@@ -50,35 +50,51 @@ var weatherForecast = async function(weather) {
     var lat = weather.latId
     var lon = weather.lonId
     var requestWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherKey}`
-    // be a good boi and fetch the weather api data!
+    // Here Fido, fetch the weather api data!
     await fetch(requestWeatherURL)
-    .then(function(forecast) {
-        forecast.json().then(function(forecast) {
+    .then(function(weatherResponseData) {
+        weatherResponseData.json().then(function(forecast) {
             // now we can see the sky's behavior in our console
-            console.log(forecast)
+            // console.log(forecast)
+            displayForecast(forecast)
         })
     })
 }    
 
     
+// Pull out main weather data
+var currentDay = function (forecast) {
+    for (var i = 0; i < forecast.length; i++) {
+        var weatherWeather = forecast[i].main.value;
+    }
+}
 
 
     // Display current weather and creating elements
-var displayWeather = function(forecast) {
-    currentWeather.textContent = "";
-    cityInputSearch.textContent = forecast;
-
-    var currentDay = document.createElement("span")
-    currentDay.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
-    cityInputSearch.appendChild(currentDay);
-
-
-
-    var currentDay = function (forecastData) {
-        for (var i = 0; i < forecastData.length; i++) {
-            var weatherWeather = forecastData[i].main.value;
-        }
+var displayForecast = function(forecast) {
+    console.log(forecast)
+//    mainWeatherForecastEl.textContent = "";
+//    userInputField.textContent = cityName;
     }
+
+
+    var mainWeatherForecastEl = document.querySelector("#mainWeatherForecast");
+
+
+
+
+
+    // weatherResponseData.json().then(function(forecast) {
+    //     displayForecast(forecast);
+    //   });
+
+    // var currentDay = document.createElement("span")
+    // currentDay.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
+    // cityInputSearch.appendChild(currentDay);
+
+
+
+    
 
 
     // var icons = document.createElement("img")
@@ -100,10 +116,10 @@ var displayWeather = function(forecast) {
     // currrentWeather.appendChild(humid);
     // currrentWeather.appendChild(windSpeed);
 
-    var lat = weather.coord.lat;
-    var lon = weather.coord.lon;
-    uvIndex(lat,lon);
-};
+//     var lat = weather.coord.lat;
+//     var lon = weather.coord.lon;
+//     uvIndex(lat,lon);
+// };
     
 
 
