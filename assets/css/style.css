@@ -149,7 +149,7 @@ form {
       flex-basis: 100%;
     }
   
-    #display-weather-card {
+    #display-weather-container-card {
       margin: 20px;
       flex: 100%
     }
