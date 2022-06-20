@@ -12,51 +12,37 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="menu">
         <h1>Recipe for a<span class="seo"> Rainy Day</span></h1>
     </header>
 
     <!-- Search recipe area -->
-    <input id="search"><button onclick="getrecipe(document.getElementById('search').value)">Search.</button>
-    <div id="output"></div>
-    <a href="" id="sourceLink"></a>
-    <script>
-    function getsource(id){
-        $.ajax({
-          url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=f0d97127e9c84932ad19b3b3239929af",
-          success: function(res){
-            document.getElementById("sourceLink").innerHTML=res.sourceUrl
-            document.getElementById("sourceLink").href=res.sourceUrl
-    
-          }
-        });
-      }
-      function getrecipe(q) {
-        $.ajax({
-          url: "https://api.spoonacular.com/recipes/search?apiKey=f0d97127e9c84932ad19b3b3239929af&number=5",
-          success: function (res) {
-            console.log(res);
-            for (let i = 0; i < 5; i++) {
-              let recipeCard = document.createElement("div");
-              let recipeLink = document.createElement("div");
-              recipeLink.innerHTML = "<a href="+res.results[i].sourceUrl+">Recipe Link</a>"
-              recipeCard.innerHTML = "<h1>" + res.results[i].title + "</h1><br><img src='" + res.baseUri + res.results[i].image + "'width='75'/><br> ready in " + res.results[i].readyInMinutes + " minutes";
-              recipeCard.appendChild(recipeLink);
-              document.getElementById("output").appendChild(recipeCard);
-            }
-          }})
-      }
-</script>
-
+    <div class="recipe-search">
+        <h3>Recipe Search:</h3>
+        <div class="search-container">
+            <form method="dialog">
+                <input id="recipeSearch" type="text" placeholder="Search.." name="search">
+                <button id="submit" class="button alert hollow" type="button">Submit</button>
+            </form>
+        </div>
+        <section>
+            <output></output>
+        </section>
+    </div>
 
     <!-- Simple modal dialog containing a form -->
     <dialog id="favRecipe">
         <form method="dialog">
             <div>
-                <p>
-                <ul id="results"></ul>
-                </p>
-                <button id="confirmBtn" value="default" class="button alert hollow">Confirm</button>
+                <div class="modal-header">
+                    <h3>Top 5 Results Search Results:</h3>
+                </div>
+                <div class="modal-body">
+                    <ul id="results"></ul>
+                </div>
+                <div class="modal-footer grid-x">
+                    <button id="confirmBtn" value="default" class="button primary cell auto">Close</button>
+                </div>
             </div>
         </form>
     </dialog>
@@ -65,40 +51,51 @@
 
 
     <!-- Recipe List -->
-
-
-    <!-- User Location Input Form -->
-    <div class="card column medium-up-3" id="user-input-form">
-        <div class="card-divider">
-            <h4>Location Specific Weather</h4>
-        </div>
-        <div class="card-section">
-            <p>Please input your cityy, state, and country.<br> Ex: Charlotte, NC, US.</p>
-        </div>
-        <form>
-            <input id="cityInputField" type="text" placeholder="city, state, country">
-            <div>
-                <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+    <main id="fiveDays" class="grid-container fluid">
+        <section class="grid-x grid-margin-x">
+            <div class="card cell auto">
+                <h3 id="title" class="card-divider">Recipe Ingredients:</h3>
+                <ul id="mon"></ul>
             </div>
-        </form>
+        </section>
+    </main>
+
+    <!-- Display Weather -->
+    <div class="">
+        <div class="card cell medium" style="width: 500px;">
+            <div class="card-divider">
+                <h4>Location Specific Weather</h4>
+            </div>
+            <div class="card-section">
+                <p>Please input your city, state, and country.<br> Ex: Charlotte, NC, US.</p>
+            </div>
+            <form>
+                <input id="cityInputField" type="text" placeholder="city, state, country">
+                <div>
+                    <button id="citySubmit" class="button alert hollow" type="button">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Display Weather Box -->
-    <div class="card column medium-up-3" id="display-weather-card">
+    <div class="card column medium-up-3" id="display-weather-container-card">
         <div class="card-divider" id="weather-title">
             <h4>Displaying Current Weather for: <span id="usercity"></span></h4>
-        </div>
+        </div class="weather-on-display">
+
         <div>
-            
+
         </div>
     </div>
 
     <footer class="footer">
-        <h5>Made with love by The-Source. c. 2022</h5>
+        <h5>Made with love by The-Source c. 2022</h5>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/food.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="./assets/js/weather.js"></script>
 </body>
 

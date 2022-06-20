@@ -62,33 +62,65 @@ var weatherForecast = async function(weather) {
 }    
 
     
-// Pull out main weather data
-var currentDay = function (forecast) {
+// Loop over weather data
+// var currentDay = function (forecast) {
+//     for (var i = 0; i < forecast.length; i++) {
+//         var weatherMain = forecast[i].main;
+//     }
+// }
+
+
+// // container for weather data
+// var mainWeatherForecastEl = document.createElement("div");
+//     mainWeatherForecastEl.classList = "list-item flex-row justify-space-between align-center";
+
+// // span element for data type name
+// var titleEl = document.createElement("span");
+// titleEl.textContent = "Main Forecast";
+
+
+// var mainWeatherForecastEl = document.querySelector("#mainWeatherForecast");
+// titleEl.textContent = "Main Forecast"
+
+
+
+
+    // Display current weather
+var displayForecast = function(forecast) {
+    console.log(forecast);
+//    mainWeatherForecastEl.textContent = "";
+//    userInputField.textContent = cityName;
+    
+    // Loop over weather data
     for (var i = 0; i < forecast.length; i++) {
-        var weatherWeather = forecast[i].main.value;
+
+        // format weather data name
+        var weatherMain = forecast[i].main;
+
+        // container for weather data
+        var mainWeatherForecastEl = document.createElement("div");
+        mainWeatherForecastEl.classList = "list-item flex-row justify-space-between align-center";
+
+        // span element for data type name
+        var titleEl = document.createElement("span");
+        titleEl.textContent = weatherMain;
+
+        // append
+        mainWeatherForecastEl.appendChild(titleEl);
+
+        // append container to html dom
+        weatherOnDisplay.appendChild(mainWeatherForecastEl);
     }
 }
 
 
-    // Display current weather and creating elements
-var displayForecast = function(forecast) {
-    console.log(forecast)
-//    mainWeatherForecastEl.textContent = "";
-//    userInputField.textContent = cityName;
-    }
-
-
-    var mainWeatherForecastEl = document.querySelector("#mainWeatherForecast");
 
 
 
 
 
-    // weatherResponseData.json().then(function(forecast) {
-    //     displayForecast(forecast);
-    //   });
 
-    // var currentDay = document.createElement("span")
+
     // currentDay.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
     // cityInputSearch.appendChild(currentDay);
 
