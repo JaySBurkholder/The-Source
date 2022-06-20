@@ -17,16 +17,37 @@
     </header>
 
     <!-- Search recipe area -->
-    <div class="recipe-search">
-        <h3>Recipe Search</h3>
-        <div class="search-container">
-            <form method="dialog">
-                <input id="recipeSearch" type="text" placeholder="Search.." name="search">
-                <button id="submit" class="button alert hollow" type="button">Submit</button>
-            </form>
-        </div>
-        <section></section>
-    </div>
+    <input id="search"><button onclick="getrecipe(document.getElementById('search').value)">Search.</button>
+    <div id="output"></div>
+    <a href="" id="sourceLink"></a>
+    <script>
+    function getsource(id){
+        $.ajax({
+          url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=f0d97127e9c84932ad19b3b3239929af",
+          success: function(res){
+            document.getElementById("sourceLink").innerHTML=res.sourceUrl
+            document.getElementById("sourceLink").href=res.sourceUrl
+    
+          }
+        });
+      }
+      function getrecipe(q) {
+        $.ajax({
+          url: "https://api.spoonacular.com/recipes/search?apiKey=f0d97127e9c84932ad19b3b3239929af&number=5",
+          success: function (res) {
+            console.log(res);
+            for (let i = 0; i < 5; i++) {
+              let recipeCard = document.createElement("div");
+              let recipeLink = document.createElement("div");
+              recipeLink.innerHTML = "<a href="+res.results[i].sourceUrl+">Recipe Link</a>"
+              recipeCard.innerHTML = "<h1>" + res.results[i].title + "</h1><br><img src='" + res.baseUri + res.results[i].image + "'width='50'/><br> ready in " + res.results[i].readyInMinutes + " minutes";
+              recipeCard.appendChild(recipeLink);
+              document.getElementById("output").appendChild(recipeCard);
+            }
+          }})
+      }
+</script>
+
 
     <!-- Simple modal dialog containing a form -->
     <dialog id="favRecipe">
