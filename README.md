@@ -23,5 +23,11 @@ Taj Beteta
 Jay Burkholder
 Unique 
 
+# Link to deployed application
+https://jaysburkholder.github.io/The-Source/
+
+# Our Site
+![screenshot](/assets/Project1Picture.png)
+
 # Made by group 7: THE SOURCE
 with love and hunger :)
