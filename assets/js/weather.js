@@ -115,7 +115,7 @@ var displayForecast = function(forecast) {
     tempMin.innerHTML = tempMinForecast
     humidity.innerHTML = humidityForecast
     feelsLike.innerHTML = feelsLikeForecast
-    icon.innerHTML = iconForecast
+    // icon.innerHTML = iconForecast
 
 // var temp = document.createElement("span");
 //         temp.classList = "card-body text-center";
