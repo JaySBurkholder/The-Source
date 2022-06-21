@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>Deli<span class="seo">cious Meals</span></h1>
+    </header>
+
+    <div class="recipe-search">
+        <h3>Recipe Search</h3>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input id="recipeSearch" type="text" placeholder="Search.." name="search">
+                <div>
+                    <button id="submit" class="hollow button alert" type="button">Submit</button>
+                </div>
+            </form>
+        </div>
+        <section id="showResults"></section>
+    </div>
+
+    <!-- Recipe List -->
+    <main class="fiveDays" id="fiveDays">
+        <section class="meals-list-wrapper">
+            <h2 id="mealName" class="list-title">Favorite Meals!!</h2>
+            <ul class="meals-list" id="mealList"></ul>
+        </section>
+    </main>
+
+    <!-- Display Weather -->
+    <div class="flex">
+        <div class="box4">
+            <div class="card row mediunm" style="width: 400px;">
+                <div class="card-divider">
+                    <h4>Current Weather</h4>
+                </div>
+                <div class="card-section">
+                    <p>This card makes use of the card-divider element.</p>
+                </div>
+                <form>
+                    <input id="cityInputField" type="text" placeholder="Search..">
+                    <button class="hollow button alert" id="citySubmit" type="button">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!--CALANDER-->
+
+        <div class="box3">
+
+            <div class="box">
+                <div class="box2">
+                    <header>
+                        <a class="o-btn c-today__btn" href="https://www.datecalculator.org/day-of-the-year">TODAY</a>
+                    </header>
+                    <Button>CLEAR</Button>
+
+                    <div class="c-event__creator c-calendar__style js-event__creator">
+                        <button>CLOSE</button>
+                        </header>
+                    </div>
+                    <form id="addEvent">
+                        <input placeholder="Event name" type="text" name="name">
+                        <input type="date" name="date">
+                        <textarea placeholder="Notes" name="notes" cols="30" rows="10"></textarea>
+                        <select name="tags">
+                            <option value="event">event</option>
+                            <option value="important">important</option>
+                            <option value="birthday">birthday</option>
+                            <option value="festivity">festivity</option>
+                        </select>
+
+                        <br>
+                        <button type="submit">SAVE</button>
+                    </form>
+                </div>
+            </div>
+            </link>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/food.js"></script>
+    <script src="./assets/js/weather.js"></script>
+    <script src="./assets/js/javascript.js"></script>
+</body>
+
+</html>

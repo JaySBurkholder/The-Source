@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #d9dcd6;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #8d9ca4;
+    color: #ffffff;
+}
+
+header h1 {
+    justify-content: flex-start;
+    font-size: 48px;
+}
+
+header h1 .seo {
+    color: #d9dcd6;
+}
+
+header nav {
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 15px;
+    margin-right: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+.recipe-search {
+    height: 200px;
+}
+
+.recipe-search h3 {
+  padding: 10px;
+}
+
+h2 {
+    margin-left: 25px;
+    font-family: sans-serif;
+}
+
+.search-container {
+    margin-left: 25px;
+
+}
+
+form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  form input {
+    outline: none;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 2.2rem;
+    border: 2px solid var(--grey);
+    border-radius: 12px;
+  }
+
+  input[type='text'] {
+    width: 300px;
+  }
+
+.fiveDays {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px auto;
+    width: 75%;
+  }
+  
+  .meals-list-wrapper {
+    flex: 1;
+    margin: 0 20px 20px;
+  }
+  
+  .list-title {
+    color: black;
+    font-size: 2.6rem;
+  }
+  
+  .meals-list {
+    list-style: none;
+    padding: 15px;
+    height: calc(100% - 50px);
+    background: rgb(196, 196, 196);
+    border-radius: 12px;
+    border: 2px solid black;
+  }
+
+  .card {
+    padding: 20px;
+    ;
+  }
+  
+  @media screen and (max-width: 980px) {
+    form {
+      flex: 1 100%;
+    }
+  
+    form button {
+      width: 10%;
+    }
+  
+    .task-list-wrapper {
+      flex-basis: 100%;
+    }
+  
+  }
+
+  .box3 {
+    width: 500px;
+    height: 635px;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    display: flex; 
+    justify-items: space-between;
+  }  
+
+.flex{
+  display: inline-flex;
+  flex-direction: row;
+  justify-items: space-between 15px;
+}
+
+.box4{
+  flex-direction:flex-start;
+  justify-items: space-between;
+}
+
+
