@@ -48,18 +48,6 @@ header nav {
   font-size: 20px;
 }
 
-<<<<<<< HEAD
-header nav ul {
-  list-style-type: none;
-  display: inline-flex;
-}
-
-header nav ul li {
-  margin-left: 25px;
-}
-
-=======
->>>>>>> 0119fcd5ea80ce5cef30c7b6925b88a9421db36e
 .recipe-search {
   height: 200px;
 }
@@ -176,11 +164,6 @@ input[type='text'] {
     top: 0;
     opacity: 1
   }
-<<<<<<< HEAD
-}
-=======
-
->>>>>>> 0119fcd5ea80ce5cef30c7b6925b88a9421db36e
 
 @media screen and (max-width: 980px) {
   form {
@@ -195,9 +178,5 @@ input[type='text'] {
     flex-basis: 100%;
   }
 
-<<<<<<< HEAD
-} */
-=======
 
 }
->>>>>>> 0119fcd5ea80ce5cef30c7b6925b88a9421db36e
