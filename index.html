@@ -51,14 +51,17 @@
 
 
     <!-- Recipe List -->
-    <main id="fiveDays" class="grid-container fluid">
+   
+    <main  id="fiveDays" class="grid-container fluid">
         <section class="grid-x grid-margin-x">
             <div class="card cell auto">
                 <h3 id="title" class="card-divider">Recipe Ingredients:</h3>
                 <ul id="mon"></ul>
             </div>
         </section>
+    
     </main>
+
 
     <!-- Display Weather -->
     <div class="">
@@ -82,11 +85,19 @@
     <div class="card column medium-up-3" id="display-weather-container-card">
         <div class="card-divider" id="weather-title">
             <h4>Displaying Current Weather for: <span id="usercity"></span></h4>
-        </div class="weather-on-display">
-
+        </div> 
+        <br>
         <div>
-
+            <ul class="no-bullet" id="weather-displayed">
+                <li class="text-center" id="mainForecast"></li>
+                <li class="text-center"id="currentTemp"></li>
+                <li class="text-center"id="tempMax"></li>
+                <li class="text-center"id="tempMin"></li>
+                <li class="text-center"id="humidity"></li>
+                <li class="text-center"id="feelsLike"></li>
+            </ul>
         </div>
+
     </div>
 
     <footer class="footer">
